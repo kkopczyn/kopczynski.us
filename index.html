@@ -9,6 +9,9 @@
 <meta property="og:description" content="Built and sold a data consultancy, doubled revenue per employee at Croud, and built an AI operating system licensed across a 105-location franchise network.">
 <meta property="og:url" content="https://kopczynski.us/">
 <meta property="og:type" content="profile">
+<script>
+(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+</script>
 <link rel="canonical" href="https://kopczynski.us/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,17 +25,38 @@
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   color-scheme:light;
 }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131314; --surface:#1B1B1D; --ink:#ECEBEB; --ink-2:#C9C7C8; --muted:#9A979A;
+    --rule:#2D2B2E; --accent:#F0587A; --accent-soft:#2A1A1F; --plum:#C9A6C4; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131314; --surface:#1B1B1D; --ink:#ECEBEB; --ink-2:#C9C7C8; --muted:#9A979A;
+  --rule:#2D2B2E; --accent:#F0587A; --accent-soft:#2A1A1F; --plum:#C9A6C4; color-scheme:dark;
+}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
 body{background:var(--bg); color:var(--ink-2); font-family:var(--sans); font-size:17px; line-height:1.7; padding:0 20px}
-.page{max-width:760px; margin:0 auto; padding-block:56px 72px; display:grid; gap:48px}
+.page{max-width:760px; margin:0 auto; padding-block:64px 72px; display:grid; gap:48px}
 h1,h2,h3{color:var(--ink); margin:0; text-wrap:balance}
 p{margin:0}
 .label{font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent)}
 
 header{display:grid; gap:18px}
-header h1{font-family:var(--mono); font-weight:700; color:var(--accent); font-size:clamp(34px,6vw,48px); line-height:1.05; letter-spacing:-.01em}
+.theme-toggle{position:fixed; top:calc(14px + env(safe-area-inset-top,0px)); right:16px; z-index:10; width:38px; height:38px; border-radius:50%; border:1px solid var(--rule); background:var(--surface); color:var(--ink); display:grid; place-items:center; cursor:pointer; padding:0}
+.theme-toggle:hover{border-color:var(--accent); color:var(--accent)}
+.theme-toggle:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.theme-toggle svg{width:18px; height:18px}
+.theme-toggle .sun{display:none}
+:root[data-theme="dark"] .theme-toggle .sun{display:block}
+:root[data-theme="dark"] .theme-toggle .moon{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .theme-toggle .sun{display:block}
+  :root:not([data-theme="light"]) .theme-toggle .moon{display:none}
+}
+header h1{font-family:var(--mono); font-weight:700; color:var(--ink); font-size:clamp(34px,6vw,48px); line-height:1.05; letter-spacing:-.01em}
 .role{font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 18px}
 .role span:first-child{color:var(--accent)}
 .thesis{font-size:22px; line-height:1.45; font-weight:600; color:var(--ink); max-width:62ch}
@@ -41,7 +65,7 @@ header h1{font-family:var(--mono); font-weight:700; color:var(--accent); font-si
 .figs{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
 .fig{padding:18px 16px 18px 0; display:grid; gap:4px; align-content:start}
 .fig + .fig{padding-left:16px; border-left:1px solid var(--rule)}
-.fig b{font-family:var(--mono); font-weight:700; font-size:28px; line-height:1.1; color:var(--accent); font-variant-numeric:tabular-nums}
+.fig b{font-family:var(--mono); font-weight:700; font-size:28px; line-height:1.1; color:var(--ink); font-variant-numeric:tabular-nums}
 .fig span{font-size:13.5px; color:var(--muted); line-height:1.4}
 @media (max-width:640px){
   .figs{grid-template-columns:1fr 1fr}
@@ -52,10 +76,14 @@ header h1{font-family:var(--mono); font-weight:700; color:var(--accent); font-si
 section{display:grid; gap:18px}
 section > h2{font-family:var(--mono); font-weight:500; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); padding-bottom:10px; border-bottom:1px solid var(--rule)}
 
-.method{display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px; font-family:var(--mono); font-size:13.5px}
-.method .step{padding:6px 12px; border:1px solid var(--rule); border-radius:4px; color:var(--ink); background:var(--surface)}
-.method .step.last{border-color:var(--accent); color:var(--accent); background:var(--accent-soft)}
-.method .arrow{color:var(--muted)}
+.method{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; font-family:var(--mono); font-size:13.5px; counter-reset:m}
+.method li{position:relative; padding:10px 12px; border:1px solid var(--rule); border-radius:4px; color:var(--ink); background:var(--surface); display:flex; align-items:center; line-height:1.35}
+.method li + li::before{content:"→"; position:absolute; left:-18px; top:50%; transform:translateY(-50%); color:var(--muted)}
+.method li.last{border-color:var(--accent); color:var(--accent); background:var(--accent-soft)}
+@media (max-width:640px){
+  .method{grid-template-columns:1fr; gap:18px}
+  .method li + li::before{content:"↓"; left:14px; top:-19px; transform:none}
+}
 
 .jobs{display:grid; gap:28px}
 .job{display:grid; grid-template-columns:120px 1fr; gap:4px 24px}
@@ -69,7 +97,7 @@ section > h2{font-family:var(--mono); font-weight:500; font-size:12px; letter-sp
 
 .strengths{display:grid; gap:22px}
 .strength{display:grid; grid-template-columns:28px 1fr; gap:0 14px}
-.strength .n{font-family:var(--mono); font-weight:700; font-size:22px; line-height:1.2; color:var(--accent)}
+.strength .n{font-family:var(--mono); font-weight:500; font-size:18px; line-height:1.5; color:var(--accent)}
 .strength h3{font-size:17px; font-weight:600; margin-bottom:4px}
 .strength p + p{margin-top:10px}
 
@@ -96,7 +124,7 @@ section > h2{font-family:var(--mono); font-weight:500; font-size:12px; letter-sp
 .next h3{font-size:17px; font-weight:600}
 .next p{font-size:15px; color:var(--ink)}
 .tally{font-family:var(--mono); font-size:13px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 22px; font-variant-numeric:tabular-nums}
-.tally b{color:var(--ink); font-weight:500}
+.tally b{color:var(--ink); font-weight:700}
 footer{border-top:1px solid var(--rule); padding-top:20px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 24px; font-size:14px; color:var(--muted)}
 footer .contact{font-family:var(--mono); color:var(--ink); user-select:all}
 a{color:var(--accent); text-underline-offset:3px}
@@ -105,6 +133,10 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 </style>
 </head>
 <body>
+<button class="theme-toggle" type="button" aria-label="Switch between light and dark mode">
+  <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
 <div class="page">
   <header>
     <div class="role"><span>AI Transformation Leader</span><span>New York, NY</span></div>
@@ -122,12 +154,12 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 
   <section>
     <h2>How I do it</h2>
-    <div class="method" aria-label="Method, in order">
-      <span class="step">Prototype by hand</span><span class="arrow" aria-hidden="true">→</span>
-      <span class="step">Prove with contractors</span><span class="arrow" aria-hidden="true">→</span>
-      <span class="step">Turn into software</span><span class="arrow" aria-hidden="true">→</span>
-      <span class="step last">Run it with AI agents</span>
-    </div>
+    <ol class="method" aria-label="Method, in order">
+      <li>Prototype by hand</li>
+      <li>Prove with contractors</li>
+      <li>Turn into software</li>
+      <li class="last">Run it with AI agents</li>
+    </ol>
     <p class="lede">Most AI transformation efforts treat AI as a tool purchase and stall in pilots. The value comes from redesigning the work and the decisions around it, then winning adoption. I find the one number that matters most, build the smallest system that moves it, prove it in production, then roll it out. Each stage pays for the next, so the change sticks.</p>
   </section>
 
@@ -239,5 +271,12 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     <span class="contact">konrad.kopczynski@gmail.com</span>
   </footer>
 </div>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.querySelector(".theme-toggle");
+  function current(){var t=root.getAttribute("data-theme"); if(t) return t; return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}
+  btn.addEventListener("click",function(){var next=current()==="dark"?"light":"dark"; root.setAttribute("data-theme",next); try{localStorage.setItem("theme",next);}catch(e){}});
+})();
+</script>
 </body>
 </html>
