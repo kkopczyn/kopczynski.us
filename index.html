@@ -76,14 +76,6 @@ header h1{font-family:var(--mono); font-weight:700; color:var(--ink); font-size:
 section{display:grid; gap:18px}
 section > h2{font-family:var(--mono); font-weight:500; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); padding-bottom:10px; border-bottom:1px solid var(--rule)}
 
-.method{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; font-family:var(--mono); font-size:13.5px; counter-reset:m}
-.method li{position:relative; padding:10px 12px; border:1px solid var(--rule); border-radius:4px; color:var(--ink); background:var(--surface); display:flex; align-items:center; line-height:1.35}
-.method li + li::before{content:"→"; position:absolute; left:-18px; top:50%; transform:translateY(-50%); color:var(--muted)}
-.method li.last{border-color:var(--accent); color:var(--accent); background:var(--accent-soft)}
-@media (max-width:640px){
-  .method{grid-template-columns:1fr; gap:18px}
-  .method li + li::before{content:"↓"; left:14px; top:-19px; transform:none}
-}
 
 .jobs{display:grid; gap:28px}
 .job{display:grid; grid-template-columns:120px 1fr; gap:4px 24px}
@@ -107,6 +99,14 @@ section > h2{font-family:var(--mono); font-weight:500; font-size:12px; letter-sp
 .fit .yes{grid-column:1 / -1}
 .fit .no{color:var(--ink)}
 
+.kah{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:6px; overflow:hidden}
+.kah > div{background:var(--surface); padding:18px 20px; display:grid; gap:8px; align-content:start}
+.kah > .base{grid-column:1 / -1; background:var(--accent-soft)}
+.kah .tag{font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent)}
+.kah > div:not(.base) .tag{font-size:15px; letter-spacing:.04em; text-transform:none; font-weight:700; color:var(--ink)}
+.kah p{font-size:15px}
+@media (max-width:640px){ .kah{grid-template-columns:1fr} }
+.lede strong{color:var(--ink); font-weight:600}
 .loop{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:6px; overflow:hidden}
 .loop > div{background:var(--surface); padding:18px 20px; display:grid; gap:6px; align-content:start}
 .loop h3{font-size:15.5px; font-weight:600}
@@ -153,21 +153,21 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   </div>
 
   <section>
-    <h2>How I do it</h2>
-    <ol class="method" aria-label="Method, in order">
-      <li>Prototype by hand</li>
-      <li>Prove with contractors</li>
-      <li>Turn into software</li>
-      <li class="last">Run it with AI agents</li>
-    </ol>
-    <p class="lede">Most AI transformation efforts treat AI as a tool purchase and stall in pilots. The value comes from redesigning the work and the decisions around it, then winning adoption. I find the one number that matters most, build the smallest system that moves it, prove it in production, then roll it out. Each stage pays for the next, so the change sticks.</p>
+    <h2>What I build for a business</h2>
+    <div class="kah">
+      <div><span class="tag">Know</span><p>Every number that runs the day, in one place, and pushed to the people who need it before they go looking. No more digging through five systems to find out what happened.</p></div>
+      <div><span class="tag">Ask</span><p>Assistants trained on the company's own data and playbooks. Click a number to see why it moved, or ask how we do something, and get the company's answer, not a generic one.</p></div>
+      <div><span class="tag">Handled</span><p>The repetitive work comes off people's plates. Recruiting screens, invoicing, collections and follow-ups run as workflows, and people step in only for the calls that need judgment.</p></div>
+      <div class="base"><span class="tag">Underneath: it improves itself</span><p>Errors, team feedback and feature requests flow back in and become fixes and new features, so the system gets better every week without a project to kick it off. How that works is below.</p></div>
+    </div>
+    <p class="lede"><strong>Where I start:</strong> find the one number that matters most, build the smallest system that moves it, prove it in production, then widen from there.</p>
   </section>
 
   <section>
-    <h2>How I use AI to build software autonomously</h2>
+    <h2>How I build it: AI that builds software autonomously</h2>
     <p class="lede">I built Titan with a software team made of AI agents. Every change goes through the same pipeline of reviews, tests and checks, and a person only steps in where a decision needs one. It's the AI transformation playbook I'd bring to a company that wants AI doing real work, not running pilots.</p>
     <div class="loop">
-      <div><span class="tag">Parallel work</span><h3>No fixed limit on agents</h3><p>Each agent works in its own isolated copy of the code, and merges go through one queue, so work runs in parallel without collisions. I've run more than 30 at once. The limit isn't compute or headcount, it's how fast decisions get made, and the system is built to make most of them itself.</p></div>
+      <div><span class="tag">Parallel work</span><h3>No fixed limit on agents</h3><p>Each agent works in its own isolated copy of the code, and merges go through one queue, so work runs in parallel without collisions. I've run more than 80 at once. The limit isn't compute or headcount, it's how fast decisions get made, and the system is built to make most of them itself.</p></div>
       <div><span class="tag">Adversarial review</span><h3>Every change goes through a multi-step adversarial review</h3><p>Plans and code are each challenged by AI reviewers for safety, architecture and test coverage, plus a reviewer built from 52 of my own review comments. Above them sits a CEO agent built on my judgment: it reviews the results, settles what's ready and pushes each workstream forward, so work doesn't wait on me.</p></div>
       <div><span class="tag">Nothing ships unchecked</span><h3>A full pipeline from plan to production</h3><p>Plans are published as Titan documents and reviewed inline before any code is written. Then come up to 21 automated checks and 400+ test files, a live preview on production-shaped data, a merge queue that refuses anything failing, and a deploy that tests itself and rolls back if it breaks.</p></div>
       <div><span class="tag">Self-healing, self-improving</span><h3>The product evolves on its own</h3><p>Errors caught overnight, feedback from the team and new feature requests all flow back in. The system turns them into plans and code, runs them through the same reviews and pipeline, and ships the improvement. By morning, what broke is fixed and what people asked for is in progress. It emails me only when a decision truly needs a person.</p></div>
