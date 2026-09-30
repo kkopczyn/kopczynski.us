@@ -102,6 +102,9 @@ section > h2{font-family:var(--mono); font-weight:500; font-size:12px; letter-sp
 .strength h3{font-size:17px; font-weight:600; margin-bottom:4px}
 .strength p + p{margin-top:10px}
 
+.fitlist{margin:0; padding-left:18px; display:grid; gap:10px}
+.fitlist li::marker{color:var(--accent)}
+.fitlist strong{color:var(--ink); font-weight:600}
 .fit{display:grid; gap:14px}
 .fit ul{margin:0; padding-left:18px; display:grid; gap:6px}
 .fit li::marker{color:var(--accent)}
@@ -305,15 +308,13 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 
   <section>
     <h2>Where I'd be a great fit</h2>
-    <div class="fit">
-      <ul class="yes">
-        <li>Head or VP of AI Transformation at a PE-backed multi-location services company, franchisor or roll-up</li>
-        <li>An operating role with an AI mandate at a PE firm or holding company, applying one playbook across a portfolio</li>
-        <li>A consulting firm or agency turning AI advice into delivery its clients keep, or an AI transformation team moving from pilots to adoption at scale</li>
-        <li>Any company that wants to grow revenue without growing headcount, and needs one leader for the strategy, the build and the adoption</li>
-      </ul>
-      <p class="no">I'm looking for a full-time role leading AI transformation. The best next step is a short conversation about where your operation is stuck.</p>
-    </div>
+    <ul class="fitlist">
+      <li><strong>Applied AI, forward-deployed and solutions roles at AI companies.</strong> Helping customers put AI to real work. I've built an AI system and sold it into a national franchise group, so I know what it takes on the customer's side.</li>
+      <li><strong>AI product roles.</strong> Building AI products for businesses, as a builder who understands the operator using them.</li>
+      <li><strong>AI transformation at brands, agencies and marketing organizations.</strong> Taking marketing and growth teams from AI pilots to AI doing the work, grounded in years of performance marketing and measurement at Croud.</li>
+      <li><strong>Operating roles with an AI mandate at PE firms and portfolio companies.</strong> Applying one playbook across a portfolio, especially multi-location businesses.</li>
+    </ul>
+    <p class="lede">I'm looking for a full-time role, remote from the Hudson Valley. The best next step is an intro to the team, or a short conversation about where AI is stuck in your organization.</p>
   </section>
 
   <section id="help">
