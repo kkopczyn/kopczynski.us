@@ -28,12 +28,12 @@
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#131314; --surface:#1B1B1D; --ink:#ECEBEB; --ink-2:#C9C7C8; --muted:#9A979A;
-    --rule:#2D2B2E; --accent:#F0587A; --accent-soft:#2A1A1F; --plum:#C9A6C4; color-scheme:dark;
+    --rule:#2D2B2E; --accent:#E5484D; --accent-soft:#2B1719; --plum:#C9A6C4; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#131314; --surface:#1B1B1D; --ink:#ECEBEB; --ink-2:#C9C7C8; --muted:#9A979A;
-  --rule:#2D2B2E; --accent:#F0587A; --accent-soft:#2A1A1F; --plum:#C9A6C4; color-scheme:dark;
+  --rule:#2D2B2E; --accent:#E5484D; --accent-soft:#2B1719; --plum:#C9A6C4; color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -115,6 +115,14 @@ section > h2{font-family:var(--mono); font-weight:500; font-size:12px; letter-sp
 .kah p{font-size:15px}
 @media (max-width:640px){ .kah{grid-template-columns:1fr} }
 .lede strong{color:var(--ink); font-weight:600}
+.roles-block{display:grid; gap:14px; margin-top:28px}
+.roles-head h3{font-size:17px; font-weight:600; margin:0 0 4px}
+.roles-head p{margin:0; font-size:14.5px; color:var(--muted)}
+.linkish{justify-self:start; background:none; border:0; padding:0; font:inherit; font-size:14.5px; color:var(--accent); text-decoration:underline; text-underline-offset:3px; cursor:pointer}
+.intro-row{display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px}
+.btn{font:inherit; font-weight:600; font-size:15px; color:#fff; background:var(--accent); border:0; border-radius:4px; padding:10px 18px; cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible,.linkish:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
 .flabel{font-size:14.5px; font-weight:600; color:var(--ink)}
 .role-list{display:grid; gap:8px}
 .role-item{display:grid; grid-template-columns:20px 1fr; gap:10px; align-items:start; padding:10px 12px; border:1px solid var(--rule); border-radius:4px; background:var(--bg); cursor:pointer}
@@ -299,7 +307,6 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     <h2>Want to help?</h2>
     <p class="lede">Thank you. The most useful thing is a specific introduction. Any one of these takes a minute:</p>
     <form class="help" id="help-form" novalidate>
-      <div class="field" id="h-roles-wrap" hidden><span class="flabel">Roles I'm going for. Tick any where you could make an intro.</span><div id="h-roles" class="role-list"></div></div>
       <div class="field"><label for="h-work">Where do you work?</label><input id="h-work" name="work" type="text" placeholder="Company name" autocomplete="organization"><span class="hint">I'll look for AI roles there and tell you exactly who to connect me with.</span></div>
       <div class="field"><label for="h-companies">Companies where you know people</label><textarea id="h-companies" name="companies" rows="2" placeholder="e.g. Target, Vista Equity, Neighborly"></textarea></div>
       <div class="field"><label for="h-role">Seen a role that fits? Paste the link</label><input id="h-role" name="role" type="url" placeholder="https://"></div>
@@ -310,6 +317,12 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
       <button type="submit">Send to Konrad</button>
       <p class="form-status" id="help-status" role="status" aria-live="polite"></p>
     </form>
+    <div class="roles-block" id="roles-block" hidden>
+      <div class="roles-head"><h3 id="roles-title">Roles I'm going for</h3><p class="rm" id="roles-sub">Tick any where you could introduce me to the team or hiring manager.</p></div>
+      <div id="h-roles" class="role-list"></div>
+      <button type="button" class="linkish" id="roles-more" hidden></button>
+      <div class="intro-row"><button type="button" class="btn" id="intro-send">I can intro you for these</button><p class="form-status" id="intro-status" role="status" aria-live="polite"></p></div>
+    </div>
   </section>
 
   <footer>
@@ -322,26 +335,6 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   var root=document.documentElement, btn=document.querySelector(".theme-toggle");
   function current(){var t=root.getAttribute("data-theme"); if(t) return t; return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}
   btn.addEventListener("click",function(){var next=current()==="dark"?"light":"dark"; root.setAttribute("data-theme",next); try{localStorage.setItem("theme",next);}catch(e){}});
-})();
-</script>
-<script>
-var ROLES = [];
-(function(){
-  var wrap=document.getElementById("h-roles-wrap"), list=document.getElementById("h-roles"), work=document.getElementById("h-work");
-  function esc(t){ return String(t||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
-  function render(){
-    var q=(work.value||"").trim().toLowerCase();
-    var order=ROLES.map(function(r,i){ return {r:r,i:i,m:q.length>1 && r.company.toLowerCase().indexOf(q)>=0}; });
-    order.sort(function(a,b){ return (b.m-a.m) || (a.i-b.i); });
-    var checked={}; list.querySelectorAll("input:checked").forEach(function(c){ checked[c.value]=1; });
-    list.innerHTML=order.map(function(o){
-      var r=o.r, meta=[r.remote?"Remote":"On-site/hybrid", r.pay].filter(Boolean).join(" · ");
-      return '<label class="role-item'+(o.m?' match':'')+'"><input type="checkbox" name="intro" value="'+o.i+'"'+(checked[o.i]?' checked':'')+'><span><span class="rt"><strong>'+esc(r.company)+'</strong> · '+esc(r.title)+'</span><br><span class="rm">'+esc(meta)+'</span> · <a href="'+esc(r.url)+'" target="_blank" rel="noopener">see role</a></span></label>';
-    }).join("");
-  }
-  fetch("/roles.json",{cache:"no-store"}).then(function(x){ return x.ok?x.json():{roles:[]}; }).then(function(d){
-    ROLES=(d&&d.roles)||[]; if(!ROLES.length) return; wrap.hidden=false; render(); work.addEventListener("input",render);
-  }).catch(function(){});
 })();
 </script>
 <script>
@@ -360,28 +353,92 @@ var ROLES = [];
     if (ref) { ph.register({referrer_code: ref}); ph.register_once({first_referrer_code: ref}); }
   }
   var form = document.getElementById("help-form"), status = document.getElementById("help-status");
+  var block = document.getElementById("roles-block"), list = document.getElementById("h-roles"), more = document.getElementById("roles-more");
+  var titleEl = document.getElementById("roles-title"), subEl = document.getElementById("roles-sub"), send = document.getElementById("intro-send"), introStatus = document.getElementById("intro-status");
+  var ROLES = [], showAll = false, last = {};
+  function esc(t){ return String(t||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  function norm(t){ return String(t||"").toLowerCase().replace(/[^a-z0-9 ]+/g," ").replace(/\b(inc|llc|corp|co|the|group|company)\b/g,"").replace(/\s+/g," ").trim(); }
+  function terms(){
+    var raw = [document.getElementById("h-work").value, document.getElementById("h-companies").value, last.work, last.companies].join(",");
+    return raw.split(/[,;\n]+/).map(norm).filter(function(t){ return t.length > 1; });
+  }
+  function score(r, ts){
+    var c = norm(r.company), best = 0;
+    ts.forEach(function(t){ if (c === t) best = Math.max(best, 3); else if (c.indexOf(t) >= 0 || t.indexOf(c) >= 0) best = Math.max(best, 2); });
+    return best;
+  }
+  function render(){
+    if (!ROLES.length) return;
+    var ts = terms(), checked = {};
+    list.querySelectorAll("input:checked").forEach(function(c){ checked[c.value] = 1; });
+    var items = ROLES.map(function(r, i){ return {r:r, i:i, s:score(r, ts)}; });
+    var matches = items.filter(function(o){ return o.s > 0; }).sort(function(a,b){ return b.s - a.s; });
+    var rest = items.filter(function(o){ return o.s === 0; });
+    var shown;
+    if (matches.length) {
+      titleEl.textContent = matches.length === 1 ? "A role where you might be able to help" : "Roles where you might be able to help";
+      shown = showAll ? matches.concat(rest) : matches;
+    } else {
+      titleEl.textContent = "Roles I'm going for";
+      shown = showAll ? rest : rest.slice(0, 6);
+    }
+    var hidden = ROLES.length - shown.length;
+    more.hidden = hidden <= 0 && !showAll;
+    more.textContent = showAll ? "Show fewer" : (matches.length ? "See all " + ROLES.length + " roles" : "Show " + hidden + " more roles");
+    list.innerHTML = shown.map(function(o){
+      var r = o.r, meta = [r.remote ? "Remote" : "On-site / hybrid", r.pay].filter(Boolean).join(" · ");
+      return '<label class="role-item' + (o.s ? ' match' : '') + '"><input type="checkbox" value="' + o.i + '"' + (checked[o.i] ? ' checked' : '') + '><span><span class="rt"><strong>' + esc(r.company) + '</strong> · ' + esc(r.title) + '</span><br><span class="rm">' + esc(meta) + '</span> · <a href="' + esc(r.url) + '" target="_blank" rel="noopener">see role</a></span></label>';
+    }).join("");
+  }
+  more.addEventListener("click", function(){ showAll = !showAll; render(); });
+  ["h-work","h-companies"].forEach(function(id){ document.getElementById(id).addEventListener("input", function(){ showAll = false; render(); }); });
+  fetch("/roles.json", {cache:"no-store"}).then(function(x){ return x.ok ? x.json() : {roles:[]}; }).then(function(d){
+    ROLES = (d && d.roles) || []; if (!ROLES.length) return; block.hidden = false; render();
+  }).catch(function(){});
+
+  function who(){
+    var n = document.getElementById("h-name").value.trim() || last.name || "", c = document.getElementById("h-contact").value.trim() || last.contact || "";
+    return {name:n, contact:c};
+  }
+  function mailto(subject, body){
+    window.location.href = "mailto:konrad.kopczynski@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  }
   form.addEventListener("submit", function(ev){
     ev.preventDefault();
-    var d = {}; new FormData(form).forEach(function(v,k){ if (k !== "intro") d[k] = String(v).trim(); });
-    var picked = Array.prototype.slice.call(form.querySelectorAll('input[name="intro"]:checked')).map(function(c){ return ROLES[+c.value]; });
-    if (!d.work && !d.companies && !d.role && !picked.length) { status.textContent = "Tick a role you could intro me for, or add where you work, companies you know people at, or a role link."; return; }
-    if (picked.length) d.role = (d.role ? d.role + "; " : "") + "Can intro: " + picked.map(function(r){ return r.company + " · " + r.title; }).join("; ");
+    var d = {}; new FormData(form).forEach(function(v,k){ d[k] = String(v).trim(); });
+    if (!d.work && !d.companies && !d.role) { status.textContent = "Add at least one: where you work, companies you know people at, or a role link."; return; }
     d.referrer_code = ref || "";
     if (!ph) {
-      var body = "Name: " + (d.name||"") + "\nContact: " + (d.contact||"") + "\nWhere I work: " + (d.work||"") + "\nCompanies I know people at: " + (d.companies||"") + "\nRole link: " + (d.role||"") + (d.referrer_code ? "\n(ref: " + d.referrer_code + ")" : "");
-      window.location.href = "mailto:konrad.kopczynski@gmail.com?subject=" + encodeURIComponent("Want to help: " + (d.name || d.work || "intro")) + "&body=" + encodeURIComponent(body);
-      status.textContent = "Thank you. Your email app should open with this filled in; just hit send. If it doesn't, email konrad.kopczynski@gmail.com.";
-      return;
-    }
-    if (picked.length) {
-      picked.forEach(function(r){ ph.capture("intro_offered", {name:d.name, contact:d.contact, work:d.work, companies:d.companies, referrer_code:d.referrer_code, role_company:r.company, role_title:r.title, role_url:r.url}); });
-      if (d.work || d.companies) ph.capture("help_offered", d);
+      mailto("Want to help: " + (d.name || d.work || "intro"), "Name: " + (d.name||"") + "\nContact: " + (d.contact||"") + "\nWhere I work: " + (d.work||"") + "\nCompanies I know people at: " + (d.companies||"") + "\nRole link: " + (d.role||"") + (d.referrer_code ? "\n(ref: " + d.referrer_code + ")" : ""));
+      status.textContent = "Thank you. Your email app should open with this filled in; just hit send.";
     } else {
       ph.capture("help_offered", d);
+      if (d.contact) ph.setPersonProperties({name: d.name || undefined, contact: d.contact});
+      status.textContent = "Thank you, that's on its way to Konrad.";
     }
-    if (d.contact) ph.setPersonProperties({name: d.name || undefined, contact: d.contact});
+    last = {name:d.name, contact:d.contact, work:d.work, companies:d.companies};
     form.reset();
-    status.textContent = "Thank you, that's on its way to Konrad. He'll follow up.";
+    if (ROLES.length) {
+      showAll = false; render();
+      var matched = list.querySelectorAll(".role-item.match").length;
+      subEl.textContent = matched ? "Based on what you shared. Tick any where you could make an intro, then press the button." : "Nothing matched your companies, but if you know anyone at these, tick them.";
+      status.textContent += matched ? " One more thing: you might be able to help with the roles below." : "";
+      block.scrollIntoView({behavior: "smooth", block: "start"});
+    }
+  });
+  send.addEventListener("click", function(){
+    var picked = Array.prototype.slice.call(list.querySelectorAll("input:checked")).map(function(c){ return ROLES[+c.value]; });
+    if (!picked.length) { introStatus.textContent = "Tick at least one role first."; return; }
+    var p = who();
+    if (!p.name && !p.contact) { introStatus.textContent = "Add your name and email or phone in the form above so I know who to thank."; document.getElementById("h-name").focus(); return; }
+    if (!ph) {
+      mailto("I can intro you: " + picked.map(function(r){ return r.company; }).join(", "), "Name: " + p.name + "\nContact: " + p.contact + "\n\nI can introduce you for:\n" + picked.map(function(r){ return "- " + r.company + " · " + r.title + " " + r.url; }).join("\n"));
+    } else {
+      picked.forEach(function(r){ ph.capture("intro_offered", {name:p.name, contact:p.contact, work:last.work||"", companies:last.companies||"", referrer_code:ref||"", role_company:r.company, role_title:r.title, role_url:r.url}); });
+      if (p.contact) ph.setPersonProperties({name: p.name || undefined, contact: p.contact});
+    }
+    list.querySelectorAll("input:checked").forEach(function(c){ c.checked = false; });
+    introStatus.textContent = "Thank you! I'll reach out about " + (picked.length === 1 ? picked[0].company : picked.length + " roles") + ".";
   });
 })();
 </script>
