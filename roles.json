@@ -1,6 +1,13 @@
 {
  "roles": [
   {
+   "company": "Databricks",
+   "title": "Director, Marketing Strategy and AI Transformation",
+   "remote": true,
+   "pay": "$177K–$305K",
+   "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8735590002"
+  },
+  {
    "company": "Meta",
    "title": "Scaled Business Growth (Scaled Business Marketing)",
    "remote": false,
@@ -13,6 +20,34 @@
    "remote": true,
    "pay": "$177K–$247K + bonus + equity",
    "url": "https://www.metacareers.com/profile/job_details/1004196572097446/"
+  },
+  {
+   "company": "Microsoft",
+   "title": "Strategic Account Technology- Strategist",
+   "remote": true,
+   "pay": "$130K–$272K",
+   "url": "https://apply.careers.microsoft.com/careers/job/1970393557004798"
+  },
+  {
+   "company": "Microsoft",
+   "title": "Signals Strategy Lead, Cloud & AI Platforms",
+   "remote": false,
+   "pay": "$106K–$222K",
+   "url": "https://apply.careers.microsoft.com/careers/job/1970393557001381"
+  },
+  {
+   "company": "Anthropic",
+   "title": "Applied AI Architect, Startups",
+   "remote": false,
+   "pay": "$240K–$315K",
+   "url": "https://job-boards.greenhouse.io/anthropic/jobs/5406982008"
+  },
+  {
+   "company": "Anthropic",
+   "title": "Applied AI Architect, Industries",
+   "remote": false,
+   "pay": "$240K–$315K",
+   "url": "https://job-boards.greenhouse.io/anthropic/jobs/4461444008"
   }
  ]
 }
