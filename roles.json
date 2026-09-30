@@ -1,3 +1,18 @@
 {
- "roles": []
+ "roles": [
+  {
+   "company": "Meta",
+   "title": "Scaled Business Growth (Scaled Business Marketing)",
+   "remote": false,
+   "pay": "$161K–$227K + bonus + equity",
+   "url": "https://www.metacareers.com/profile/job_details/1318845793029610/"
+  },
+  {
+   "company": "Meta",
+   "title": "Competitive Intelligence Lead (Product Strategy)",
+   "remote": true,
+   "pay": "$177K–$247K + bonus + equity",
+   "url": "https://www.metacareers.com/profile/job_details/1004196572097446/"
+  }
+ ]
 }
