@@ -107,6 +107,18 @@ section > h2{font-family:var(--mono); font-weight:500; font-size:12px; letter-sp
 .kah p{font-size:15px}
 @media (max-width:640px){ .kah{grid-template-columns:1fr} }
 .lede strong{color:var(--ink); font-weight:600}
+.help{display:grid; gap:16px; border:1px solid var(--rule); border-radius:6px; padding:20px; background:var(--surface)}
+.help .row{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.help .field{display:grid; gap:6px}
+.help label{font-size:14.5px; font-weight:600; color:var(--ink)}
+.help .hint{font-size:13.5px; color:var(--muted)}
+.help input,.help textarea{font:inherit; font-size:15px; color:var(--ink); background:var(--bg); border:1px solid var(--rule); border-radius:4px; padding:9px 11px; width:100%}
+.help input:focus-visible,.help textarea:focus-visible{outline:2px solid var(--accent); outline-offset:1px; border-color:transparent}
+.help button{justify-self:start; font:inherit; font-weight:600; font-size:15px; color:#fff; background:var(--accent); border:0; border-radius:4px; padding:10px 18px; cursor:pointer}
+.help button:hover{filter:brightness(1.08)}
+.help button:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
+.form-status{font-size:14.5px; color:var(--ink); min-height:1.4em}
+@media (max-width:640px){ .help .row{grid-template-columns:1fr} }
 .loop{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:6px; overflow:hidden}
 .loop > div{background:var(--surface); padding:18px 20px; display:grid; gap:6px; align-content:start}
 .loop h3{font-size:15.5px; font-weight:600}
@@ -139,7 +151,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 </button>
 <div class="page">
   <header>
-    <div class="role"><span>AI Transformation Leader</span><span>New York, NY</span></div>
+    <div class="role"><span>AI Transformation Leader</span><span>Kingston, NY · Open to remote</span></div>
     <h1>Konrad Kopczynski</h1>
     <p class="thesis">I lead AI transformation end to end: I turn work that people do by hand into software and AI systems, so a business grows without adding headcount.</p>
     <p class="lede">At Croud I doubled revenue per employee and cut employee cost 15% by replacing manual delivery with software. In my own service businesses I went further: I built Titan, an AI operating system that took labor from 50% to 30% of revenue and replaced a seven-person engineering team with one person. Pink's Windows' franchisor licensed it for all 105 locations.</p>
@@ -266,6 +278,22 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     </div>
   </section>
 
+  <section id="help" hidden>
+    <h2>Want to help?</h2>
+    <p class="lede">Thank you. The most useful thing is a specific introduction. Any one of these takes a minute:</p>
+    <form class="help" id="help-form" novalidate>
+      <div class="field"><label for="h-work">Where do you work?</label><input id="h-work" name="work" type="text" placeholder="Company name" autocomplete="organization"><span class="hint">I'll look for AI roles there and tell you exactly who to connect me with.</span></div>
+      <div class="field"><label for="h-companies">Companies where you know people</label><textarea id="h-companies" name="companies" rows="2" placeholder="e.g. Target, Vista Equity, Neighborly"></textarea></div>
+      <div class="field"><label for="h-role">Seen a role that fits? Paste the link</label><input id="h-role" name="role" type="url" placeholder="https://"></div>
+      <div class="row">
+        <div class="field"><label for="h-name">Your name</label><input id="h-name" name="name" type="text" autocomplete="name"></div>
+        <div class="field"><label for="h-contact">Email or phone, so I can thank you</label><input id="h-contact" name="contact" type="text" autocomplete="email"></div>
+      </div>
+      <button type="submit">Send to Konrad</button>
+      <p class="form-status" id="help-status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
   <footer>
     <span>BS Economics, The George Washington University, 2010 · NCAA Division I swimmer</span>
     <span class="contact">konrad.kopczynski@gmail.com</span>
@@ -276,6 +304,36 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   var root=document.documentElement, btn=document.querySelector(".theme-toggle");
   function current(){var t=root.getAttribute("data-theme"); if(t) return t; return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}
   btn.addEventListener("click",function(){var next=current()==="dark"?"light":"dark"; root.setAttribute("data-theme",next); try{localStorage.setItem("theme",next);}catch(e){}});
+})();
+</script>
+<script>
+/* Analytics + referral links + help form. Set POSTHOG_KEY to the project API key (phc_...). */
+(function(){
+  var POSTHOG_KEY = "";
+  var POSTHOG_HOST = "https://us.i.posthog.com";
+  var ref = null;
+  try { ref = new URLSearchParams(location.search).get("r"); } catch(e){}
+  try { if (ref) localStorage.setItem("kk_ref", ref); else ref = localStorage.getItem("kk_ref"); } catch(e){}
+  var ph = null;
+  if (POSTHOG_KEY) {
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once identify setPersonProperties reset get_distinct_id".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init(POSTHOG_KEY, {api_host: POSTHOG_HOST, person_profiles: "identified_only"});
+    ph = window.posthog;
+    if (ref) { ph.register({referrer_code: ref}); ph.register_once({first_referrer_code: ref}); }
+  }
+  var form = document.getElementById("help-form"), status = document.getElementById("help-status");
+  if (POSTHOG_KEY) document.getElementById("help").hidden = false;
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var d = {}; new FormData(form).forEach(function(v,k){ d[k] = String(v).trim(); });
+    if (!d.work && !d.companies && !d.role) { status.textContent = "Add at least one: where you work, companies you know people at, or a role link."; return; }
+    d.referrer_code = ref || "";
+    if (!ph) { status.textContent = "Thank you. This form isn't connected yet, so please email konrad.kopczynski@gmail.com instead."; return; }
+    ph.capture("help_offered", d);
+    if (d.contact) ph.setPersonProperties({name: d.name || undefined, contact: d.contact});
+    form.reset();
+    status.textContent = "Thank you, that's on its way to Konrad. He'll follow up.";
+  });
 })();
 </script>
 </body>
