@@ -335,6 +335,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
       <div class="field"><label for="h-work">Where do you work?</label><input id="h-work" name="work" type="text" placeholder="Company name" autocomplete="organization"><span class="hint">I'll look for AI roles there and tell you exactly who to connect me with.</span></div>
       <div class="field"><label for="h-companies">Companies where you know people</label><textarea id="h-companies" name="companies" rows="2" placeholder="e.g. Target, Vista Equity, Neighborly"></textarea></div>
       <div class="field"><label for="h-role">Seen a role that fits? Paste the link</label><input id="h-role" name="role" type="url" placeholder="https://"></div>
+      <div class="field"><label for="h-feedback">Any feedback on how I'm positioning myself?</label><textarea id="h-feedback" name="feedback" rows="2" placeholder="What's clear, what's not, what you'd change"></textarea></div>
       <div class="row">
         <div class="field"><label for="h-name">Your name</label><input id="h-name" name="name" type="text" autocomplete="name"></div>
         <div class="field"><label for="h-contact">Email or phone, so I can thank you</label><input id="h-contact" name="contact" type="text" autocomplete="email"></div>
@@ -416,6 +417,10 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     }).join("");
   }
   more.addEventListener("click", function(){ showAll = !showAll; render(); });
+  document.addEventListener("click", function(ev){
+    var a = ev.target.closest && ev.target.closest('a[href$=".pdf"]');
+    if (a && ph) ph.capture("resume_opened", {where: a.closest("section") ? (a.closest("section").id || "page") : "header"});
+  });
   ["h-work","h-companies"].forEach(function(id){ document.getElementById(id).addEventListener("input", function(){ showAll = false; render(); }); });
   fetch("/roles.json", {cache:"no-store"}).then(function(x){ return x.ok ? x.json() : {roles:[]}; }).then(function(d){
     ROLES = (d && d.roles) || []; if (!ROLES.length) return; block.hidden = false; render();
@@ -431,10 +436,10 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   form.addEventListener("submit", function(ev){
     ev.preventDefault();
     var d = {}; new FormData(form).forEach(function(v,k){ d[k] = String(v).trim(); });
-    if (!d.work && !d.companies && !d.role) { status.textContent = "Add at least one: where you work, companies you know people at, or a role link."; return; }
+    if (!d.work && !d.companies && !d.role && !d.feedback) { status.textContent = "Add at least one: where you work, companies you know people at, a role link, or feedback."; return; }
     d.referrer_code = ref || "";
     if (!ph) {
-      mailto("Want to help: " + (d.name || d.work || "intro"), "Name: " + (d.name||"") + "\nContact: " + (d.contact||"") + "\nWhere I work: " + (d.work||"") + "\nCompanies I know people at: " + (d.companies||"") + "\nRole link: " + (d.role||"") + (d.referrer_code ? "\n(ref: " + d.referrer_code + ")" : ""));
+      mailto("Want to help: " + (d.name || d.work || "intro"), "Name: " + (d.name||"") + "\nContact: " + (d.contact||"") + "\nWhere I work: " + (d.work||"") + "\nCompanies I know people at: " + (d.companies||"") + "\nRole link: " + (d.role||"") + "\nFeedback: " + (d.feedback||"") + (d.referrer_code ? "\n(ref: " + d.referrer_code + ")" : ""));
       status.textContent = "Thank you. Your email app should open with this filled in; just hit send.";
     } else {
       ph.capture("help_offered", d);
