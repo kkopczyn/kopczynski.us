@@ -372,6 +372,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   try { ref = new URLSearchParams(location.search).get("r"); } catch(e){}
   try { if (ref) localStorage.setItem("kk_ref", ref); else ref = localStorage.getItem("kk_ref"); } catch(e){}
   var ph = null;
+  var NOW = {send_instantly: true, transport: "sendBeacon"};  // offers and resume clicks must survive the visitor closing the tab or opening the PDF
   if (POSTHOG_KEY) {
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once identify setPersonProperties reset get_distinct_id".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
     posthog.init(POSTHOG_KEY, {api_host: POSTHOG_HOST, person_profiles: "identified_only"});
@@ -419,7 +420,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   more.addEventListener("click", function(){ showAll = !showAll; render(); });
   document.addEventListener("click", function(ev){
     var a = ev.target.closest && ev.target.closest('a[href$=".pdf"]');
-    if (a && ph) ph.capture("resume_opened", {where: a.closest("section") ? (a.closest("section").id || "page") : "header"});
+    if (a && ph) ph.capture("resume_opened", {where: a.closest("section") ? (a.closest("section").id || "page") : "header"}, NOW);
   });
   ["h-work","h-companies"].forEach(function(id){ document.getElementById(id).addEventListener("input", function(){ showAll = false; render(); }); });
   fetch("/roles.json", {cache:"no-store"}).then(function(x){ return x.ok ? x.json() : {roles:[]}; }).then(function(d){
@@ -442,7 +443,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
       mailto("Want to help: " + (d.name || d.work || "intro"), "Name: " + (d.name||"") + "\nContact: " + (d.contact||"") + "\nWhere I work: " + (d.work||"") + "\nCompanies I know people at: " + (d.companies||"") + "\nRole link: " + (d.role||"") + "\nFeedback: " + (d.feedback||"") + (d.referrer_code ? "\n(ref: " + d.referrer_code + ")" : ""));
       status.textContent = "Thank you. Your email app should open with this filled in; just hit send.";
     } else {
-      ph.capture("help_offered", d);
+      ph.capture("help_offered", d, NOW);
       if (d.contact) ph.setPersonProperties({name: d.name || undefined, contact: d.contact});
       status.textContent = "Thank you, that's on its way to Konrad.";
     }
@@ -464,7 +465,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     if (!ph) {
       mailto("I can intro you: " + picked.map(function(r){ return r.company; }).join(", "), "Name: " + p.name + "\nContact: " + p.contact + "\n\nI can introduce you for:\n" + picked.map(function(r){ return "- " + r.company + " · " + r.title + " " + r.url; }).join("\n"));
     } else {
-      picked.forEach(function(r){ ph.capture("intro_offered", {name:p.name, contact:p.contact, work:last.work||"", companies:last.companies||"", referrer_code:ref||"", role_company:r.company, role_title:r.title, role_url:r.url}); });
+      picked.forEach(function(r){ ph.capture("intro_offered", {name:p.name, contact:p.contact, work:last.work||"", companies:last.companies||"", referrer_code:ref||"", role_company:r.company, role_title:r.title, role_url:r.url}, NOW); });
       if (p.contact) ph.setPersonProperties({name: p.name || undefined, contact: p.contact});
     }
     list.querySelectorAll("input:checked").forEach(function(c){ c.checked = false; });
