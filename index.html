@@ -420,7 +420,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   more.addEventListener("click", function(){ showAll = !showAll; render(); });
   document.addEventListener("click", function(ev){
     var a = ev.target.closest && ev.target.closest('a[href$=".pdf"]');
-    if (a && ph) ph.capture("resume_opened", {where: a.closest("section") ? (a.closest("section").id || "page") : "header"}, NOW);
+    if (a && ph) window.posthog.capture("resume_opened", {where: a.closest("section") ? (a.closest("section").id || "page") : "header"}, NOW);
   });
   ["h-work","h-companies"].forEach(function(id){ document.getElementById(id).addEventListener("input", function(){ showAll = false; render(); }); });
   fetch("/roles.json", {cache:"no-store"}).then(function(x){ return x.ok ? x.json() : {roles:[]}; }).then(function(d){
@@ -443,8 +443,8 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
       mailto("Want to help: " + (d.name || d.work || "intro"), "Name: " + (d.name||"") + "\nContact: " + (d.contact||"") + "\nWhere I work: " + (d.work||"") + "\nCompanies I know people at: " + (d.companies||"") + "\nRole link: " + (d.role||"") + "\nFeedback: " + (d.feedback||"") + (d.referrer_code ? "\n(ref: " + d.referrer_code + ")" : ""));
       status.textContent = "Thank you. Your email app should open with this filled in; just hit send.";
     } else {
-      ph.capture("help_offered", d, NOW);
-      if (d.contact) ph.setPersonProperties({name: d.name || undefined, contact: d.contact});
+      window.posthog.capture("help_offered", d, NOW);
+      if (d.contact) window.posthog.setPersonProperties({name: d.name || undefined, contact: d.contact});
       status.textContent = "Thank you, that's on its way to Konrad.";
     }
     last = {name:d.name, contact:d.contact, work:d.work, companies:d.companies};
@@ -465,8 +465,8 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     if (!ph) {
       mailto("I can intro you: " + picked.map(function(r){ return r.company; }).join(", "), "Name: " + p.name + "\nContact: " + p.contact + "\n\nI can introduce you for:\n" + picked.map(function(r){ return "- " + r.company + " · " + r.title + " " + r.url; }).join("\n"));
     } else {
-      picked.forEach(function(r){ ph.capture("intro_offered", {name:p.name, contact:p.contact, work:last.work||"", companies:last.companies||"", referrer_code:ref||"", role_company:r.company, role_title:r.title, role_url:r.url}, NOW); });
-      if (p.contact) ph.setPersonProperties({name: p.name || undefined, contact: p.contact});
+      picked.forEach(function(r){ window.posthog.capture("intro_offered", {name:p.name, contact:p.contact, work:last.work||"", companies:last.companies||"", referrer_code:ref||"", role_company:r.company, role_title:r.title, role_url:r.url}, NOW); });
+      if (p.contact) window.posthog.setPersonProperties({name: p.name || undefined, contact: p.contact});
     }
     list.querySelectorAll("input:checked").forEach(function(c){ c.checked = false; });
     introStatus.textContent = "Thank you! I'll reach out about " + (picked.length === 1 ? picked[0].company : picked.length + " roles") + ".";
