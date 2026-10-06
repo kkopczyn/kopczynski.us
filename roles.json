@@ -1,6 +1,13 @@
 {
  "roles": [
   {
+   "company": "Ode with Anthropic",
+   "title": "Principal, AI Transformation",
+   "remote": false,
+   "pay": "$300K–$450K",
+   "url": "https://jobs.ashbyhq.com/odewithanthropic/e2cd283d-72cb-4293-8095-15a0cde0e292"
+  },
+  {
    "company": "OpenAI",
    "title": "Manager, Forward Deployed Engineering- NYC",
    "remote": true,
