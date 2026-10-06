@@ -1,46 +1,25 @@
 {
  "roles": [
   {
-   "company": "Databricks",
-   "title": "Director, Marketing Strategy and AI Transformation",
+   "company": "OpenAI",
+   "title": "Manager, Forward Deployed Engineering- NYC",
    "remote": true,
-   "pay": "$177K–$305K",
-   "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8735590002"
+   "pay": "$302K–$385K",
+   "url": "https://jobs.ashbyhq.com/openai/5bbc43df-558a-4e4b-a0cf-83f185c664d7"
   },
   {
    "company": "Snowflake",
-   "title": "Principal Business Operations Manager, Ops & AI Tooling",
+   "title": "Senior Product Manager - AI Migrations",
    "remote": true,
-   "pay": "$176K–$231K",
-   "url": "https://jobs.ashbyhq.com/snowflake/d5aa496c-cd9b-4af0-be4d-76ed8bf38ba3"
+   "pay": "$236K–$339K",
+   "url": "https://jobs.ashbyhq.com/snowflake/8e88251e-e77e-428e-bccf-dc1ccadc22ef"
   },
   {
-   "company": "Meta",
-   "title": "Scaled Business Growth (Scaled Business Marketing)",
-   "remote": false,
-   "pay": "$161K–$227K + bonus + equity",
-   "url": "https://www.metacareers.com/profile/job_details/1318845793029610/"
-  },
-  {
-   "company": "Meta",
-   "title": "Competitive Intelligence Lead (Product Strategy)",
+   "company": "Databricks",
+   "title": "Sr. Manager, AI Forward Deployed Engineering (AI FDE)",
    "remote": true,
-   "pay": "$177K–$247K + bonus + equity",
-   "url": "https://www.metacareers.com/profile/job_details/1004196572097446/"
-  },
-  {
-   "company": "Microsoft",
-   "title": "Strategic Account Technology- Strategist",
-   "remote": true,
-   "pay": "$130K–$272K",
-   "url": "https://apply.careers.microsoft.com/careers/job/1970393557004798"
-  },
-  {
-   "company": "Microsoft",
-   "title": "Signals Strategy Lead, Cloud & AI Platforms",
-   "remote": false,
-   "pay": "$106K–$222K",
-   "url": "https://apply.careers.microsoft.com/careers/job/1970393557001381"
+   "pay": "$232K–$320K",
+   "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8779014002"
   },
   {
    "company": "Anthropic",
@@ -57,18 +36,11 @@
    "url": "https://job-boards.greenhouse.io/anthropic/jobs/4461444008"
   },
   {
-   "company": "Snowflake",
-   "title": "Senior Product Manager - AI Migrations",
-   "remote": true,
-   "pay": "$236K–$339K",
-   "url": "https://jobs.ashbyhq.com/snowflake/8e88251e-e77e-428e-bccf-dc1ccadc22ef"
-  },
-  {
    "company": "Databricks",
-   "title": "Sr. Manager, AI Forward Deployed Engineering (AI FDE)",
+   "title": "Director, Marketing Strategy and AI Transformation",
    "remote": true,
-   "pay": "$232K–$320K",
-   "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8779014002"
+   "pay": "$177K–$305K",
+   "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8735590002"
   },
   {
    "company": "ClickUp",
@@ -92,11 +64,39 @@
    "url": "https://jobs.ashbyhq.com/govwell/e85c2f79-41a4-434a-af88-8b0b5391fae6"
   },
   {
+   "company": "CVS Health",
+   "title": "Principal AI Architect",
+   "remote": true,
+   "pay": "$144K–$288K",
+   "url": "https://cvshealth.wd1.myworkdayjobs.com/CVS_Health_Careers/job/CO---Work-from-home/Principal-AI-Architect_R1008622"
+  },
+  {
    "company": "PermitFlow",
    "title": "Product Manager, AI (Staff/Principal)",
    "remote": true,
    "pay": "$230K–$285K",
    "url": "https://jobs.ashbyhq.com/permitflow/6acf9264-aed4-45b3-854c-ed19283c16d0"
+  },
+  {
+   "company": "Writer",
+   "title": "Strategic AI transformation lead (East)",
+   "remote": true,
+   "pay": "$205K–$259K",
+   "url": "https://jobs.ashbyhq.com/writer/95d975eb-06f8-4d29-bd75-2fdffa265d78"
+  },
+  {
+   "company": "Meta",
+   "title": "Competitive Intelligence Lead (Product Strategy)",
+   "remote": true,
+   "pay": "$177K–$247K + bonus + equity",
+   "url": "https://www.metacareers.com/profile/job_details/1004196572097446/"
+  },
+  {
+   "company": "Snowflake",
+   "title": "Principal Business Operations Manager, Ops & AI Tooling",
+   "remote": true,
+   "pay": "$176K–$231K",
+   "url": "https://jobs.ashbyhq.com/snowflake/d5aa496c-cd9b-4af0-be4d-76ed8bf38ba3"
   },
   {
    "company": "Chainguard",
@@ -111,27 +111,6 @@
    "remote": true,
    "pay": "pay not listed",
    "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7803651002"
-  },
-  {
-   "company": "OpenAI",
-   "title": "Manager, Forward Deployed Engineering- NYC",
-   "remote": true,
-   "pay": "$302K–$385K",
-   "url": "https://jobs.ashbyhq.com/openai/5bbc43df-558a-4e4b-a0cf-83f185c664d7"
-  },
-  {
-   "company": "Writer",
-   "title": "Strategic AI transformation lead (East)",
-   "remote": true,
-   "pay": "$205K–$259K",
-   "url": "https://jobs.ashbyhq.com/writer/95d975eb-06f8-4d29-bd75-2fdffa265d78"
-  },
-  {
-   "company": "CVS Health",
-   "title": "Principal AI Architect",
-   "remote": true,
-   "pay": "$144K–$288K",
-   "url": "https://cvshealth.wd1.myworkdayjobs.com/CVS_Health_Careers/job/CO---Work-from-home/Principal-AI-Architect_R1008622"
   }
  ]
 }
