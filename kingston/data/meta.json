@@ -1,0 +1,156 @@
+{
+ "generated_at": "2026-10-10T17:02:01Z",
+ "generated_at_local": "2026-10-10T13:02:01-04:00",
+ "timezone": "America/New_York",
+ "window": {
+  "from": "2026-10-10T13:02:01-04:00",
+  "to": "2026-11-24T13:02:01-05:00",
+  "days": 45
+ },
+ "counts": {
+  "events": 388,
+  "places": 80,
+  "places_valid": 80,
+  "by_category": {
+   "food": 143,
+   "music": 61,
+   "community": 56,
+   "art": 53,
+   "nightlife": 28,
+   "family": 23,
+   "outdoors": 12,
+   "market": 12
+  },
+  "by_ring": {
+   "core": 322,
+   "near": 49,
+   "edge": 17
+  },
+  "tonight": 5,
+  "this_weekend": 20,
+  "new_this_week": 7,
+  "happy_hour": 141,
+  "no_geocode": 0,
+  "nominatim_calls": 0,
+  "out_of_area": 74,
+  "bad_end": 32,
+  "duplicates_merged": 83,
+  "outside_window": 358,
+  "outside_city_line": 61,
+  "recurring_end_clamped": 8,
+  "venue_from_title": 2
+ },
+ "sources": [
+  {
+   "name": "Kingston Happenings",
+   "key": "kh_ical",
+   "url": "https://kingstonhappenings.org/?ical=1",
+   "kind": "ical",
+   "ok": true,
+   "fetched_at": "2026-10-10T13:02:01-04:00",
+   "raw": 722,
+   "count": 339
+  },
+  {
+   "name": "Kingston Happenings",
+   "key": "kh_rss",
+   "url": "https://kingstonhappenings.org/events/feed/",
+   "kind": "kh_rss",
+   "ok": true,
+   "fetched_at": "2026-10-10T13:02:01-04:00",
+   "raw": 727,
+   "note": "only items missing from the iCal are used",
+   "count": 3
+  },
+  {
+   "name": "Assembly",
+   "key": "assembly",
+   "url": "https://www.assemblykingston.com/events?format=json",
+   "kind": "squarespace",
+   "ok": true,
+   "fetched_at": "2026-10-10T13:02:01-04:00",
+   "raw": 24,
+   "count": 18
+  },
+  {
+   "name": "Tubby's",
+   "key": "tubbys",
+   "url": "https://www.tubbyskingston.com/calendar?format=json",
+   "kind": "squarespace",
+   "ok": true,
+   "fetched_at": "2026-10-10T13:02:01-04:00",
+   "raw": 37,
+   "count": 25
+  },
+  {
+   "name": "Kingston Farmers Market",
+   "key": "kfm",
+   "url": "https://kingstonfarmersmarket.org/feed/",
+   "kind": "kfm",
+   "ok": true,
+   "fetched_at": "2026-10-10T13:02:01-04:00",
+   "rss_latest_post": "2023-10-11T10:48:35+00:00",
+   "note": "dates from published market schedule; RSS has no recent posts",
+   "raw": 18,
+   "count": 0
+  },
+  {
+   "name": "City of Kingston",
+   "key": "city_news",
+   "url": "https://www.kingston-ny.gov/qcontent/NewsFeed.ashx?ChanID=594",
+   "kind": "news",
+   "ok": true,
+   "count": 0,
+   "items": 19,
+   "note": "news feed, not parsed into events"
+  },
+  {
+   "name": "City of Kingston (service news)",
+   "key": "city_service",
+   "url": "https://www.kingston-ny.gov/qcontent/NewsFeed.ashx?ChanID=19365",
+   "kind": "news",
+   "ok": true,
+   "count": 0,
+   "items": 8,
+   "note": "news feed, not parsed into events"
+  },
+  {
+   "name": "Hudson Valley One",
+   "key": "hv1",
+   "url": "https://hudsonvalleyone.com/feed/",
+   "kind": "news",
+   "ok": true,
+   "count": 0,
+   "items": 20,
+   "note": "news feed, not parsed into events"
+  },
+  {
+   "name": "Chronogram",
+   "key": "chronogram",
+   "url": "https://www.chronogram.com/feed",
+   "kind": "news",
+   "ok": false,
+   "count": 0,
+   "error": "HTTPError: HTTP Error 403: Forbidden"
+  },
+  {
+   "name": "Eventbrite",
+   "key": "eventbrite",
+   "url": "https://www.eventbrite.com/d/ny--kingston/events/",
+   "kind": "skip",
+   "ok": false,
+   "count": 0,
+   "error": "skipped: no public API (Eventbrite search closed to new keys)"
+  },
+  {
+   "name": "Kingston Crew (curated)",
+   "key": "curated",
+   "url": "places.json#events",
+   "kind": "curated",
+   "ok": true,
+   "raw": 61,
+   "count": 3
+  }
+ ],
+ "attribution": "Event listings are credited to their original source (see each event's source_name / also_via). Blurbs are generated summaries, not source text. Map data © OpenStreetMap contributors (Nominatim)."
+}

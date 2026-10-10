@@ -1,0 +1,62 @@
+/* map.css — structural styles for map.js. Every colour/font is a CSS variable
+   with a neutral grey fallback; a brand theme only sets the variables. */
+.kmap {
+  display: block; width: 100%; height: auto; aspect-ratio: 1 / 1;
+  background: var(--map-sky, #f1f1ef);
+  font-family: var(--map-font, system-ui, sans-serif);
+  user-select: none; -webkit-user-select: none; outline: none;
+}
+.kmap:focus-visible { outline: 3px solid var(--map-focus, #222); outline-offset: 2px; }
+
+.kmap .map-sky        { fill: var(--map-sky, #f1f1ef); }
+.kmap .map-hills      { fill: var(--map-hills, #d6d6d2); }
+.kmap .map-horizon    { stroke: var(--map-ink, #333); stroke-width: 1.5; }
+.kmap .map-land       { fill: var(--map-land, #e7e6e1); }
+.kmap .map-stop-far   { stop-color: var(--map-land-far, #dcdbd5); }
+.kmap .map-stop-near  { stop-color: var(--map-land, #e7e6e1); }
+.kmap .map-zone       { fill: var(--map-zone, #d2d1ca); opacity: var(--map-zone-opacity, .75); }
+.kmap .map-zone--uptown-stockade   { fill: var(--map-zone-1, var(--map-zone, #d2d1ca)); }
+.kmap .map-zone--midtown           { fill: var(--map-zone-2, var(--map-zone, #d2d1ca)); }
+.kmap .map-zone--rondout-waterfront{ fill: var(--map-zone-3, var(--map-zone, #d2d1ca)); }
+.kmap .map-road       { fill: none; stroke: var(--map-road, #fff); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.2; }
+.kmap .map-road--major{ stroke-width: 4; }
+.kmap .map-street     { fill: none; stroke: var(--map-street, var(--map-road, #fff)); stroke-width: 1; opacity: var(--map-street-opacity, .85); stroke-linecap: round; }
+.kmap .map-road-label { fill: var(--map-label-muted, #8a8a85); font: 700 calc(11px * var(--map-ts, 1)) var(--map-font-display, var(--map-font, system-ui)); letter-spacing: .3em; }
+.kmap .map-water      { fill: var(--map-water, #b9c4cb); stroke: var(--map-water-edge, #9aa7b0); stroke-width: .8; }
+
+.kmap text { pointer-events: none; }
+.kmap .map-zone-label  { fill: var(--map-label, #333); font: 700 calc(15px * var(--map-ts, 1)) var(--map-font-display, var(--map-font, system-ui)); letter-spacing: .12em; paint-order: stroke; stroke: var(--map-label-halo, rgba(255,255,255,.7)); stroke-width: 3; }
+.kmap .map-water-label { fill: var(--map-water-label, #6c7c87); font: italic calc(13px * var(--map-ts, 1)) var(--map-font, system-ui); letter-spacing: .2em; }
+.kmap .map-region-label{ fill: var(--map-label-muted, #8a8a85); font: italic calc(15px * var(--map-ts, 1)) var(--map-font, system-ui); }
+.kmap .map-town-label.map-town-label--near { font-size: calc(11px * var(--map-ts, 1)); fill: var(--map-label-muted, #8a8a85); }
+.kmap .map-town-label  { fill: var(--map-label, #333); font: 700 calc(12.5px * var(--map-ts, 1)) var(--map-font-display, var(--map-font, system-ui)); letter-spacing: .08em; }
+.kmap .map-far-label   { fill: var(--map-label-muted, #8a8a85); font: italic calc(11px * var(--map-ts, 1)) var(--map-font, system-ui); }
+.kmap .map-town-leader { stroke: var(--map-label-muted, #8a8a85); stroke-width: .8; stroke-dasharray: 2 2; }
+
+.kmap .map-pin, .kmap .map-cluster, .kmap .map-ctl { cursor: pointer; outline: none; }
+.kmap .map-pin-shape   { fill: var(--pin, #444); stroke: var(--pin-stroke, #fff); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.kmap .map-pin--event .map-pin-shape { fill: var(--pin-event, var(--pin, #444)); }
+.kmap .map-pin--eat .map-pin-shape      { fill: var(--pin-eat, var(--pin, #444)); }
+.kmap .map-pin--drink .map-pin-shape    { fill: var(--pin-drink, var(--pin, #444)); }
+.kmap .map-pin--see .map-pin-shape      { fill: var(--pin-see, var(--pin, #444)); }
+.kmap .map-pin--outdoors .map-pin-shape { fill: var(--pin-outdoors, var(--pin, #444)); }
+.kmap .map-pin--music .map-pin-shape    { fill: var(--pin-music, var(--pin, #444)); }
+.kmap .map-pin--shop .map-pin-shape     { fill: var(--pin-shop, var(--pin, #444)); }
+.kmap .map-pin--event .map-pin-shape    { stroke: var(--pin-event-stroke, var(--pin-stroke, #fff)); }
+.kmap .map-pin:hover .map-pin-shape, .kmap .map-pin:focus-visible .map-pin-shape { stroke: var(--map-focus, #111); stroke-width: 3; }
+.kmap .map-cluster-shape { fill: var(--pin-cluster, var(--pin, #444)); stroke: var(--pin-stroke, #fff); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.kmap .map-cluster:hover .map-cluster-shape, .kmap .map-cluster:focus-visible .map-cluster-shape { stroke: var(--map-focus, #111); stroke-width: 3; }
+.kmap .map-cluster-count { fill: var(--pin-text, #fff); font-weight: 700; }
+.kmap .map-spider-ring { fill: var(--map-sky, #fff); fill-opacity: .7; stroke: var(--map-label-muted, #8a8a85); stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
+.kmap .map-spider-leg  { stroke: var(--map-label-muted, #8a8a85); vector-effect: non-scaling-stroke; }
+.kmap .map-tip { fill: var(--label, var(--map-label, #222)); font-weight: 700; paint-order: stroke; stroke: var(--map-label-halo, #fff); stroke-width: 4px; stroke-linejoin: round; }
+.kmap .map-ctl-bg  { fill: var(--map-ctl-bg, #fff); stroke: var(--map-ink, #333); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.kmap .map-ctl-sym { fill: var(--map-ink, #333); }
+.kmap .map-ctl:focus-visible .map-ctl-bg { stroke-width: 3; }
+
+.map-chips { display: flex; gap: 6px; overflow-x: auto; padding: 4px 0; scrollbar-width: none; }
+.map-chip { flex: none; font: inherit; font-size: 14px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--chip-border, #999); background: var(--chip-bg, #fff); color: var(--chip-text, #222); cursor: pointer; }
+.map-chip[aria-pressed="true"] { background: var(--chip-on-bg, #222); color: var(--chip-on-text, #fff); border-color: var(--chip-on-bg, #222); }
+.map-chip:focus-visible { outline: 3px solid var(--map-focus, #222); outline-offset: 2px; }
+.kmap .map-symbol { pointer-events: none; }
+.kmap .map-pin.is-selected .map-pin-shape { stroke: var(--map-focus, #111); stroke-width: 3.5; }
