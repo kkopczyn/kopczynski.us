@@ -250,8 +250,8 @@ function select(item, kind, from) {
   const occ = isEvent ? (item.festival ? null : nextIn(item, { from: nowWall - 3 * 3600000, to: nowWall + 60 * 86400000 })) : null;
   const credit = isEvent
     ? `Listing ${item.url ? `<a href="${esc(item.url)}" rel="noopener" target="_blank">${esc(item.credit || 'via ' + item.source_name)}</a>` : esc(item.credit || '')}${alsoVia(item).length ? `, also via ${esc(alsoVia(item).join(', '))}` : ''}`
-    : `Picked by Konrad${item.source_name ? ` · first spotted via ${esc(item.source_name)}` : ''}${mk && mk.source && !/^stub/.test(mk.source) ? ` · maker info via ${esc(String(mk.source).replace(/^https?:\/\/(www\.)?/, '').split('/')[0])}` : ''}`;
-  card.innerHTML = `${from === 'featured' ? '<p class="kicker" style="margin:0 0 8px">Editor&#8217;s pick, right now</p>' : ''}
+    : `${item.source_name ? `First spotted via ${esc(item.source_name)}` : 'Researched for Kingston'}${mk && mk.source && !/^stub/.test(mk.source) ? ` · maker info via ${esc(String(mk.source).replace(/^https?:\/\/(www\.)?/, '').split('/')[0])}` : ''}`;
+  card.innerHTML = `${from === 'featured' ? '<p class="kicker" style="margin:0 0 8px">On right now</p>' : ''}
     <div class="meta"><span>${isEvent ? 'Event' : item.makerOnly ? 'Made in Kingston' : esc(CAT_LABEL[cat] || cat)}</span>${mk && !item.makerOnly ? '<span class="madetag">Made here</span>' : ''}${nb ? `<span class="dist ${districtClass(nb)}">${esc(districtName(nb))}</span>` : ''}${hasTag(item, 'approx-location') || item.geo_precision === 'approx' ? '<span class="approx">Approximate pin</span>' : ''}</div>
     <h2 tabindex="-1">${esc(fixTitle(itemName(item)))}</h2>
     ${isEvent && occ ? `<div class="when">${esc(formatWhen(occ, nowWall))}${item.venue ? ' · ' + esc(item.venue) : ''}</div>` : ''}
@@ -366,7 +366,7 @@ if (pin && byId.has(pin)) {
   select(it, places.includes(it) ? 'place' : 'event', 'link');
 }
 setSheet(side.dataset.state || 'peek');
-// Desktop: open on an editor's pick instead of an empty prompt.
+// Desktop: open on what's on right now instead of an empty prompt.
 if (!pin && !mq.matches) {
   const fr = lists.tonight.rows.find((r) => r.e.festival) || lists.tonight.rows[0] || lists.weekend.rows[0];
   if (fr) select(itemForRow(fr), 'event', 'featured');

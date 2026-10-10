@@ -16,7 +16,7 @@ import { makerAsk, searchMade, spread } from './made.js';
 export const DEFAULT_COPY = {
   name: 'Crew Bot',
   org: 'the Crew',
-  editor: 'a human editor',
+  editor: 'a person',
   contact: '',
   help: ({ org, name, contact }) => `${org}: a no-ads local guide. I'm ${name} (a bot). Ask me "tonight", "weekend", "coffee", "free", or any place name. Text HUMAN for a person. Msg & data rates may apply. Reply STOP to cancel.${contact ? ' ' + contact : ''}`,
   stop: ({ org }) => `${org}: You're unsubscribed and won't get any more texts from us. Reply START to rejoin.`,

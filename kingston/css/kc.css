@@ -649,3 +649,11 @@ input::placeholder{color:#8A8F93}
 /* For-Mike eagle slot: text must sit inside the circle, clear of the rule */
 .lh .slot{width:112px;height:112px;padding:14px;font-size:11.5px;line-height:1.25;letter-spacing:.02em;flex:none;margin:6px 0}
 @media (max-width:760px){.lh{gap:14px}.lh .slot{width:104px;height:104px;font-size:11px;padding:13px}}
+.mockflag{max-width:860px;margin:12px auto 0;font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;color:var(--brick);border:1.5px dashed var(--brick);border-radius:var(--r-sm);padding:8px 12px;text-align:center}
+/* for-mike: plain terms page */
+.letter.terms .terms-h{font-size:clamp(30px,4vw,42px);margin-top:26px}
+.letter.terms .body h2{font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--bluestone);margin:28px 0 6px}
+.letter.terms .body p,.letter.terms .body li{font-size:18px;line-height:1.6}
+.letter.terms .body > p:first-child{font-family:var(--f-body);font-size:19px;margin-top:14px}
+.letter.terms .body > p:last-child{font-style:italic;color:var(--bluestone);border-top:1px solid var(--cement);padding-top:14px;margin-top:28px}
+.letter.terms .lh .slot{width:auto;height:auto;max-width:150px;border-radius:8px;font-size:11px;line-height:1.3;padding:8px 10px;margin:0}

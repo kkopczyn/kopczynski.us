@@ -7,11 +7,11 @@ initChrome();
 const qs = new URLSearchParams(location.search);
 const now = () => (qs.get('now') ? new Date(qs.get('now')) : new Date());
 const COPY = {
-  name: 'Wick', org: 'Kingston Crew', editor: 'Konrad, our human editor', eventLines: EVENT_LINES,
+  name: 'Wick', org: 'Kingston Crew', editor: 'Konrad', eventLines: EVENT_LINES,
   help: () => 'Kingston Crew: a no-ads guide to Kingston, NY. I\'m Wick, a bot. Ask me "tonight," "weekend," "coffee," "free," or any place name. Text HUMAN for a person. Up to 2 msgs/week. Msg & data rates may apply. Reply STOP to cancel.',
   stop: () => "Kingston Crew: You're unsubscribed and won't get any more texts from us. Reply START to rejoin. Thanks for being part of the Crew.",
   start: () => 'Welcome back to Kingston Crew. Up to 2 msgs/week. Msg & data rates may apply. Reply STOP to cancel, HELP for help.',
-  human: () => 'Passing you to Konrad, our human editor. He usually replies within a day. – Wick (bot)',
+  human: () => 'Passing you to Konrad, a real person. He usually replies within a day. – Wick (bot)',
   greeting: () => "Hi, I'm Wick, the Kingston Crew bot. Ask me what's on tonight, where to eat, or what to do with a rainy Saturday.",
   offlane: () => "That's outside my lane. Kingston Crew covers where to go and what to do, not the news. Hudson Valley One and the Daily Freeman cover that.",
 };
@@ -56,7 +56,7 @@ function send(text) {
   }, qs.has('instant') ? 0 : 450);
 }
 stamp(now().toLocaleString('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: 'numeric', minute: '2-digit' }) + ' · Kingston');
-add('in', "Hi, I'm Wick, the Kingston Crew bot. Ask me what's on tonight, where to eat, or what to do with a rainy Saturday. I only suggest places our human editors picked. Text HUMAN to reach Konrad, HELP for help, STOP to unsubscribe. – Wick (bot)");
+add('in', "Hi, I'm Wick, the Kingston Crew bot. Ask me what's on tonight, where to eat, or what to do with a rainy Saturday. I only suggest places on our map and events from credited listings. Text HUMAN to reach Konrad, HELP for help, STOP to unsubscribe. – Wick (bot)");
 setSugg(["What's on tonight?", 'Rainy Saturday ideas', 'Best coffee Uptown', 'Kid-friendly this weekend', 'Something free', "What's made in Kingston?"]);
 document.getElementById('compose').addEventListener('submit', (e) => { e.preventDefault(); send(input.value); input.value = ''; });
 const script = (qs.get('script') || '').split('|').filter(Boolean);
