@@ -118,7 +118,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 
   <header>
     <div class="back"><span class="label">Case study · Titan · 2026</span><a href="/">Konrad Kopczynski</a></div>
-    <h1>How we took field labor from 50% to 30% of revenue, and why 120+ locations now run the same system</h1>
+    <h1>How we took field labor from 50% to 30% of revenue, and turned it into a system a 120+ location franchise network runs on</h1>
     <p class="thesis">Our franchise locations ran on what a few people knew and five systems that didn't talk to each other. I turned that into a system that runs the day, measures itself, and leaves people the decisions that need them.</p>
   </header>
 
@@ -126,7 +126,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     <div class="fig"><b>50→30%</b><span>Field labor as a share of revenue</span></div>
     <div class="fig"><b>$100–150</b><span>Cost per hire, down from about $1,000</span></div>
     <div class="fig"><b>~100%</b><span>Of invoices collected, plus ~$20K of bad debt recovered</span></div>
-    <div class="fig"><b>120+</b><span>Locations licensing it from a national franchise group</span></div>
+    <div class="fig"><b>120+</b><span>Locations licensed by a national franchise group, 70+ live so far</span></div>
   </div>
 
   <section>
@@ -205,7 +205,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
       <li>Field labor fell from 50% to 30% of revenue.</li>
       <li>Cost per hire went from about $1,000 to $100–150.</li>
       <li>Nearly 100% of invoices collected, and about $20K of bad debt recovered.</li>
-      <li>A national franchise group licensed it and pays per location per month. It's live across 120+ locations, the same system in each one.</li>
+      <li>A national franchise group licensed it for all 120+ of its locations and pays per location per month. 70+ are live so far, on the same system.</li>
       <li>On the build side, one person running AI coding agents did the work of a team of about seven. 975 changes shipped, each through automated review, 21 automated checks and a deploy that rolls itself back if it breaks.</li>
     </ul>
   </section>
@@ -220,6 +220,19 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     </div>
   </section>
 
+
+  <section>
+    <h2>How the AI acts in production</h2>
+    <div class="prose">
+      <p>Titan doesn't just report. Its agents make decisions and take actions in a live business every day, so most of the work went into how they're run, checked and kept in bounds.</p>
+      <p><b>Orchestration, not prompts.</b> The recruiting agent runs a full screening conversation by text and scores the candidate. Invoicing and collections run as multi-step workflows on a scheduler. On the build side, dozens of agents work in parallel, each in its own copy of the code, with a merge queue deciding what lands.</p>
+      <p><b>Tool use and workflow execution.</b> Agents act through connectors I built into the systems the business already runs on: Jobber for jobs and invoices, QuickBooks, the bank, the phone and text system, and email.</p>
+      <p><b>Evaluation, before and after.</b> Before a change ships: tests, adversarial AI review (including a reviewer built from 52 of my own review comments), 21 automated checks and a live preview on production-shaped data. After it ships: every night the system reconciles what it recorded against the source systems and writes up every error it finds.</p>
+      <p><b>Observability and failure handling.</b> Health checks and a watchdog run around the clock, and the deploy tests itself and rolls back if it breaks. The lesson that cost me the most: "it reported success" isn't success. Every job has to show its effect, not just a green status.</p>
+      <p><b>Guardrails.</b> Nothing merges without passing every check, every change can be rolled back, and the reporting would rather hide a number than show a misleading one.</p>
+      <p><b>Autonomy vs. control.</b> I decide this per workflow. Reminders and reconciliation run on their own. The recruiting agent screens and scores, but the GM makes the hire. Anything that changes money or a customer relationship in a new way waits for a person.</p>
+    </div>
+  </section>
   <section>
     <h2>What it shows</h2>
     <p class="prose">The method isn't specific to window cleaning or franchises. It's how I'd approach any operation that runs on a few people's judgment.</p>
