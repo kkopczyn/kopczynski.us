@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Titan case study · Konrad Kopczynski</title>
+<meta name="description" content="How an AI operating system took field labor from 50% to 30% of revenue in the franchise locations where it was built, and why a national franchise group now licenses it across 120+ locations.">
+<script>
+(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+</script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF; --surface:#F9F9F9; --ink:#1D1E1E; --ink-2:#2F3333; --muted:#5C6161;
+  --rule:#E4E2E3; --accent:#C8133E; --accent-soft:#FBEFF2; --plum:#4E2F4B;
+  --sans:"Libre Franklin",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131314; --surface:#1B1B1D; --ink:#ECEBEB; --ink-2:#C9C7C8; --muted:#9A979A;
+    --rule:#2D2B2E; --accent:#E5484D; --accent-soft:#2B1719; --plum:#C9A6C4; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131314; --surface:#1B1B1D; --ink:#ECEBEB; --ink-2:#C9C7C8; --muted:#9A979A;
+  --rule:#2D2B2E; --accent:#E5484D; --accent-soft:#2B1719; --plum:#C9A6C4; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+body{margin:0; background:var(--bg); color:var(--ink-2); font-family:var(--sans); font-size:17px; line-height:1.7; padding:0 16px}
+.page{max-width:760px; margin:0 auto; padding-block:64px 72px; display:grid; gap:48px}
+h1,h2,h3{color:var(--ink); margin:0; text-wrap:balance}
+p{margin:0}
+.label{font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent)}
+
+.theme-toggle{position:fixed; top:calc(14px + env(safe-area-inset-top,0px)); right:16px; z-index:10; width:38px; height:38px; border-radius:50%; border:1px solid var(--rule); background:var(--surface); color:var(--ink); display:grid; place-items:center; cursor:pointer; padding:0}
+.theme-toggle:hover{border-color:var(--accent); color:var(--accent)}
+.theme-toggle:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.theme-toggle svg{width:18px; height:18px}
+.theme-toggle .sun{display:none}
+:root[data-theme="dark"] .theme-toggle .sun{display:block}
+:root[data-theme="dark"] .theme-toggle .moon{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .theme-toggle .sun{display:block}
+  :root:not([data-theme="light"]) .theme-toggle .moon{display:none}
+}
+
+header{display:grid; gap:18px}
+.back{font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 18px}
+.back a{color:var(--ink)}
+header h1{font-family:var(--mono); font-weight:700; color:var(--ink); font-size:clamp(28px,5vw,40px); line-height:1.12; letter-spacing:-.01em}
+.thesis{font-size:21px; line-height:1.45; font-weight:600; color:var(--ink); max-width:62ch}
+
+.figs{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+.fig{padding:18px 16px 18px 0; display:grid; gap:4px; align-content:start; min-width:0}
+.fig + .fig{padding-left:16px; border-left:1px solid var(--rule)}
+.fig b{font-family:var(--mono); font-weight:700; font-size:26px; line-height:1.1; color:var(--ink); font-variant-numeric:tabular-nums}
+.fig span{font-size:13.5px; color:var(--muted); line-height:1.4}
+@media (max-width:640px){
+  .figs{grid-template-columns:1fr 1fr}
+  .fig:nth-child(3){padding-left:0; border-left:0}
+  .fig:nth-child(n+3){border-top:1px solid var(--rule)}
+}
+
+section{display:grid; gap:18px}
+section > h2{font-family:var(--mono); font-weight:500; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); padding-bottom:10px; border-bottom:1px solid var(--rule)}
+section h3{font-size:17px; font-weight:600}
+.block{display:grid; gap:6px}
+.prose{max-width:65ch; display:grid; gap:16px}
+
+ul.plain{margin:0; padding-left:18px; display:grid; gap:8px}
+ul.plain li::marker{color:var(--accent)}
+
+.pipe{list-style:none; margin:0; padding:0; counter-reset:step; display:grid; border-left:1px solid var(--rule); margin-left:13px}
+.pipe li{counter-increment:step; position:relative; padding:0 0 18px 30px}
+.pipe li:last-child{padding-bottom:0}
+.pipe li::before{content:counter(step); position:absolute; left:-14px; top:0; width:27px; height:27px; border-radius:50%; background:var(--surface); border:1px solid var(--accent); color:var(--accent); font-family:var(--mono); font-size:12.5px; display:grid; place-items:center}
+.pipe h3{font-size:15.5px; font-weight:600; line-height:27px}
+.pipe p{font-size:15px}
+
+figure{margin:0; display:grid; gap:10px}
+.shot{border:1px solid var(--rule); border-radius:6px; overflow:hidden; background:var(--surface)}
+.shot img{display:block; width:100%; height:auto}
+.shot .dk{display:none}
+:root[data-theme="dark"] .shot .lt{display:none}
+:root[data-theme="dark"] .shot .dk{display:block}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .shot .lt{display:none}
+  :root:not([data-theme="light"]) .shot .dk{display:block}
+}
+figcaption{font-size:14px; color:var(--muted); line-height:1.5}
+figcaption b{color:var(--ink); font-weight:600}
+
+.close{border:1px solid var(--rule); border-radius:6px; padding:20px; background:var(--accent-soft); display:grid; gap:8px}
+.close p{color:var(--ink)}
+
+footer{border-top:1px solid var(--rule); padding-top:20px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 24px; font-size:14px; color:var(--muted)}
+footer .contact{font-family:var(--mono); color:var(--ink); user-select:all}
+a{color:var(--accent); text-underline-offset:3px}
+a:hover{color:var(--plum)}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+</style>
+</head>
+<body>
+<button class="theme-toggle" type="button" aria-label="Switch between light and dark mode">
+  <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+<div class="page">
+
+  <header>
+    <div class="back"><span class="label">Case study · Titan · 2026</span><a href="/">Konrad Kopczynski</a></div>
+    <h1>How we took field labor from 50% to 30% of revenue, and why 120+ locations now run the same system</h1>
+    <p class="thesis">Our franchise locations ran on what a few people knew and a pile of five systems that didn't talk to each other. I turned that into a system that runs the day, measures itself, and leaves people the decisions that need them.</p>
+  </header>
+
+  <div class="figs" aria-label="Key results">
+    <div class="fig"><b>50→30%</b><span>Field labor as a share of revenue</span></div>
+    <div class="fig"><b>$100–150</b><span>Cost per hire, down from about $1,000</span></div>
+    <div class="fig"><b>~100%</b><span>Of invoices collected, plus ~$20K of bad debt recovered</span></div>
+    <div class="fig"><b>120+</b><span>Locations licensing it from a national franchise group</span></div>
+  </div>
+
+  <section>
+    <h2>The problem</h2>
+    <div class="prose">
+      <p>Home services looks simple from the outside. A crew shows up, does the job, the customer pays. Inside, the day turns on a handful of judgment calls: which job to quote, where to send a crew, who to hire, which invoice to chase.</p>
+      <p>In the home-services franchise locations I co-owned, those calls lived in a few people's heads. The data to check them was spread across five systems. Finding out what happened yesterday meant someone pulling it together by hand.</p>
+      <p>It showed up in one number. Field labor was 50% of revenue. We knew we were overspending on labor per job, we just couldn't see where fast enough to do anything about it.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What I built</h2>
+    <div class="prose">
+      <p>I built Titan, an AI operating system for multi-location service businesses, and ran our own locations on it first. It handles reporting, quoting, invoicing, collections, recruiting and dispatch.</p>
+      <div class="block">
+        <h3>Pulse: built around decisions, not dashboards</h3>
+        <p>Every number that runs the day is on one screen: quotes sent, conversion, invoiced, collected, gross margin, dollars per van per day. The same numbers land in an email twice a day so nobody has to go looking. The 6pm email lists every visit from that day and which ones still need invoicing or still need paying. That email is what shortened our cash cycle.</p>
+        <p>Each view starts from the decision someone has to make, like what to invoice, what to chase, where to send an open crew. When a number would mislead, the system holds it back instead of showing it.</p>
+      </div>
+    </div>
+
+    <figure>
+      <div class="shot">
+        <img class="lt" src="pulse-light.png" alt="Titan Pulse dashboard showing quotes sent, conversion rate, invoiced and collected totals, gross margin and dollars per van per day." width="1512" height="950" loading="lazy">
+        <img class="dk" src="pulse-dark.png" alt="Titan Pulse dashboard showing quotes sent, conversion rate, invoiced and collected totals, gross margin and dollars per van per day." width="1512" height="950" loading="lazy">
+      </div>
+      <figcaption><b>Pulse.</b> The numbers that run the day, with targets. Dollar figures are blurred here.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <div class="block">
+        <h3>Agents that give our answer, not a generic one</h3>
+        <p>They're built from the franchise's training, our SOPs and call transcripts, and rebuilt nightly. A crew member asks how to handle a job and gets the answer from our own training. GMs use the same tool to pull data from the P&amp;L, bank transactions, the CRM and marketing channels.</p>
+      </div>
+    </div>
+
+    <figure>
+      <div class="shot">
+        <img class="lt" src="agent-answer-light.png" alt="A Titan agent answering a crew question about removing oily residue from a window, citing the company's own sales and operations training." width="1512" height="950" loading="lazy">
+        <img class="dk" src="agent-answer-dark.png" alt="A Titan agent answering a crew question about removing oily residue from a window, citing the company's own sales and operations training." width="1512" height="950" loading="lazy">
+      </div>
+      <figcaption><b>Agents.</b> A crew question answered from the company's own training, with the source cited.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <div class="block">
+        <h3>A recruiting agent</h3>
+        <p>Someone texts the hiring line. The agent screens them on the spot and scores them against the three things we actually hire for: friendliness, hustle and quality. The GM gets a candidate and a transcript, and makes the call.</p>
+      </div>
+      <div class="block">
+        <h3>Dispatch</h3>
+        <p>It finds a slot next to another job in the same area so crews drive less, or pulls a future job forward into a slot that just opened.</p>
+      </div>
+    </div>
+
+    <figure>
+      <div class="shot">
+        <img class="lt" src="dispatch-light.png" alt="Titan dispatch view listing the best days to book a job in one territory, with jobs already nearby and open slots per day." width="1512" height="950" loading="lazy">
+        <img class="dk" src="dispatch-dark.png" alt="Titan dispatch view listing the best days to book a job in one territory, with jobs already nearby and open slots per day." width="1512" height="950" loading="lazy">
+      </div>
+      <figcaption><b>Dispatch.</b> Best days to book a new job, ranked by jobs already nearby and open slots.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <div class="block">
+        <h3>It checks itself overnight</h3>
+        <p>At 3am it reconciles our data against the source systems and backfills whatever drifted. At 4am it scans for errors and writes up what it found. By 5am the day's plan is waiting. Errors, team feedback and feature requests flow back in and become fixes, so it gets better every week without anyone kicking off a project.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The numbers</h2>
+    <ul class="plain">
+      <li>Field labor fell from 50% to 30% of revenue.</li>
+      <li>Cost per hire went from about $1,000 to $100–150.</li>
+      <li>Nearly 100% of invoices collected, and about $20K of bad debt recovered.</li>
+      <li>A national franchise group licensed it and pays per location per month. It's live across 120+ locations, the same system in each one.</li>
+      <li>On the build side, one person running AI coding agents did the work of a team of about seven. 975 changes shipped, each through automated review, 21 automated checks and a deploy that rolls itself back if it breaks.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What was hard</h2>
+    <div class="prose">
+      <p>The software was the easy part. Building has gotten cheap. I've run more than 80 coding agents at once, and the limit was never compute or headcount. It was how fast decisions got made.</p>
+      <p>The hard part was everything around the code. First, trust in the numbers. Data from the field system drifts, and if people see one wrong number they stop trusting all of them. That's why the overnight reconciliation exists, and why Pulse would rather hide a number than show a misleading one.</p>
+      <p>Second, adoption. A dashboard nobody acts on changes nothing. What moved behavior was sending people the numbers at 6pm with the specific visits to chase, not asking them to log in and look.</p>
+      <p>Third, deciding what the system should not decide. The recruiting agent screens and scores, the GM still hires. Drawing that line for each workflow is a business call, not a technical one.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What it shows</h2>
+    <p class="prose">The method isn't specific to window cleaning or franchises. It's how I'd approach any operation that runs on a few people's judgment.</p>
+    <ol class="pipe">
+      <li><h3>Find the one number that matters most</h3><p>For us it was labor as a share of revenue. Everything else came after.</p></li>
+      <li><h3>Write down how the best operator makes the calls behind it</h3><p>What to invoice, who to hire, where to send a crew. That judgment becomes the rules, the training material and the scoring.</p></li>
+      <li><h3>Build the smallest system that moves the number, and prove it in production</h3><p>Ours ran in our own locations before anyone else saw it. Then widen from there.</p></li>
+      <li><h3>Keep people on the calls that need judgment</h3><p>Let the system do the repetitive work and check itself every night, so the numbers stay trusted and people only step in where it matters.</p></li>
+    </ol>
+  </section>
+
+  <div class="close">
+    <p>If you're trying to do this in your operation, I'm happy to compare notes.</p>
+    <p>More on how I work at <a href="https://kopczynski.us/">kopczynski.us</a>.</p>
+  </div>
+
+  <footer>
+    <span>Konrad Kopczynski · Kingston, NY</span>
+    <span class="contact">konrad.kopczynski@gmail.com</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.querySelector(".theme-toggle");
+  function current(){var t=root.getAttribute("data-theme"); if(t) return t; return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}
+  btn.addEventListener("click",function(){var next=current()==="dark"?"light":"dark"; root.setAttribute("data-theme",next); try{localStorage.setItem("theme",next);}catch(e){}});
+})();
+</script>
+</body>
+</html>
