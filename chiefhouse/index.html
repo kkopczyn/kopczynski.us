@@ -62,6 +62,19 @@ h2{font-size:clamp(26px,4.6vw,32px); line-height:1.2; margin:0 0 24px}
 .contact a{color:var(--ink)}
 footer{padding:24px 0 48px; font-size:14px; color:var(--muted); border-top:1px solid var(--rule)}
 footer p{margin:0 0 6px}
+.org{margin:8px 0 0}
+.org .lead-role{display:block;max-width:360px;margin:0 auto;text-align:center;background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:16px}
+.org .lead-role b{font-family:var(--serif);font-weight:400;font-size:20px;display:block}
+.org .lead-role span{color:var(--muted);font-size:15px}
+.org .stem{width:1px;height:24px;background:var(--brass);margin:0 auto}
+.org .team{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0;padding:16px 0 0;list-style:none;border-top:1px solid var(--brass)}
+.org .team li{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:14px}
+.org .team b{font-family:var(--serif);font-weight:400;font-size:18px;display:block}
+.org .team span{color:var(--muted);font-size:15px}
+.note{color:var(--muted);font-size:16px;margin:20px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{border:1px solid var(--rule);background:var(--card);border-radius:999px;padding:6px 14px;font-size:15px}
+@media (max-width:640px){.org .team{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){
   .wrap{padding:0 16px}
   header.top{padding-top:28px}
@@ -75,14 +88,14 @@ footer p{margin:0 0 6px}
 <body>
 <div class="wrap">
   <header class="top">
-    <span class="tag">Concept preview</span>
+    <span class="tag">The plan</span>
     <a class="mark" href="./">Chiefhouse</a>
   </header>
 
   <main>
     <div class="hero">
       <h1>Run your day from one place.</h1>
-      <p class="lead">Chiefhouse is a small team of AI agents that works as your chief of staff. Oli, the chief of staff, keeps the team on track. They do the legwork. You make the calls.</p>
+      <p class="lead">Chiefhouse is a team of AI agents organised like a real staff: a chief of staff who runs the day, and specialists for each part of your life and work. They do the legwork. You make the calls.</p>
     </div>
 
     <section aria-labelledby="day">
@@ -102,6 +115,24 @@ footer p{margin:0 0 6px}
       </ul>
     </section>
 
+    <section aria-labelledby="team">
+      <p class="kicker">The org chart</p>
+      <h2 id="team">A staff, not a chatbot</h2>
+      <div class="org">
+        <div class="lead-role"><b>Chief of staff</b><span>Your one point of contact. Runs the rhythm, routes the work, brings you only what needs you.</span></div>
+        <div class="stem"></div>
+        <ul class="team">
+          <li><b>Clerk</b><span>Inbox, calendar, follow-ups</span></li>
+          <li><b>Finance</b><span>Bills, cash, monthly close</span></li>
+          <li><b>Counsel</b><span>Deadlines, contracts, filings</span></li>
+          <li><b>Home</b><span>House, family logistics, trades</span></li>
+          <li><b>Research</b><span>What changed, and what it means for you</span></li>
+          <li><b>Reviewer</b><span>Scores every agent and teaches the team your preferences</span></li>
+        </ul>
+      </div>
+      <p class="note">Anything that matters has two agents: one does the work, one checks it. Each business you run can have its own team with its own leads, and every product has an owner agent that keeps it improving. You hire, pause and retire agents as your life changes.</p>
+    </section>
+
     <section aria-labelledby="safe">
       <p class="kicker">How it stays safe</p>
       <h2 id="safe">Nothing goes out without you</h2>
@@ -115,18 +146,18 @@ footer p{margin:0 0 6px}
     </section>
 
     <section aria-labelledby="reach">
-      <p class="kicker">How you reach it</p>
-      <h2 id="reach">Where you already are</h2>
-      <div class="doors">
-        <div class="door"><p class="when">Today</p><p>Email, and a web page for approvals.</p></div>
-        <div class="door"><p class="when">Next</p><p>The Chiefhouse app, on the web and on your phone.</p></div>
-        <div class="door later"><p class="when">Later</p><p>Texting an agent, voice calls, agents joining your meetings as guests, and a smart speaker at home.</p></div>
-      </div>
+      <p class="kicker">Front doors</p>
+      <h2 id="reach">Reach it however you already work</h2>
+      <ul class="chips">
+        <li>Text and iMessage</li><li>Phone and voice calls</li><li>Email</li><li>The Chiefhouse app, web and phone</li><li>Home screen widgets and Siri</li><li>A guest in your Meet, Zoom or Teams calls</li><li>A smart speaker at home</li>
+      </ul>
+      <p class="note">Text a specific agent, or add one to a group thread with your partner. Whatever the door, anything that acts in the world comes back to you for a passkey tap.</p>
     </section>
 
-    <section aria-label="Built on and status" class="facts">
-      <p><b>Built on</b> Claude, with one shared engine every agent runs on.</p>
-      <p><b>Status</b> In daily use by the person who built it. The app and a hosted version are coming.</p>
+    <section aria-labelledby="engine" class="facts">
+      <p class="kicker">Under the hood</p>
+      <h2 id="engine">Model agnostic by design</h2>
+      <p>One shared engine runs every agent. Each agent can use the model that fits its job: Claude, GPT, or an open model running on your own hardware, and you can switch with a setting. Your agents run on their own private machine, and your data never mixes with anyone else's.</p>
     </section>
 
     <div class="contact">
@@ -136,7 +167,7 @@ footer p{margin:0 0 6px}
   </main>
 
   <footer>
-    <p>A concept preview by <a href="/">Konrad Kopczynski</a>. Not a product launch.</p>
+    <p>The Chiefhouse plan, by <a href="/">Konrad Kopczynski</a>.</p>
   </footer>
 </div>
 </body>
