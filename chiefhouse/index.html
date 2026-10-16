@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chiefhouse · Run your day from one place</title>
+<meta name="description" content="Chiefhouse is a team of AI agents that works as your chief of staff. A concept preview.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://kopczynski.us/chiefhouse/">
+<meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12161F" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231F2A44'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' fill='%23F6F4EE'%3EC%3C/text%3E%3Crect x='9' y='25' width='14' height='1.6' fill='%23C9A869'/%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#F6F4EE; --card:#FFFFFF; --ink:#1F2A44; --muted:#535B73; --rule:#DCD8CC; --brass:#A07C3B; --tint:#EEEAE0;
+  --serif:ui-serif,"New York",Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#12161F; --card:#1A2030; --ink:#EEF0F5; --muted:#A9B0C2; --rule:#2E3548; --brass:#C9A869; --tint:#242B3D; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0; background:var(--paper); color:var(--ink); font:17px/1.6 var(--sans); -webkit-font-smoothing:antialiased}
+a{color:inherit; text-decoration-color:var(--brass); text-underline-offset:3px; text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--brass); outline-offset:3px; border-radius:2px}
+.wrap{max-width:720px; margin:0 auto; padding:0 24px}
+header.top{padding:40px 0 0}
+.mark{display:inline-block; font-family:var(--serif); font-size:26px; letter-spacing:.01em; text-decoration:none}
+.mark::after{content:""; display:block; width:28px; height:2px; background:var(--brass); margin-top:8px}
+.tag{float:right; margin-top:10px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.hero{padding:72px 0 56px}
+h1,h2,h3{font-family:var(--serif); font-weight:400; margin:0}
+h1{font-size:clamp(34px,7vw,52px); line-height:1.12; letter-spacing:-.01em; max-width:15ch}
+.lead{font-size:clamp(18px,2.6vw,20px); color:var(--muted); max-width:34em; margin:24px 0 0}
+section{padding:48px 0; border-top:1px solid var(--rule)}
+.kicker{font-family:var(--serif); font-variant:small-caps; text-transform:lowercase; letter-spacing:.08em; font-size:19px; color:var(--muted); margin:0 0 6px}
+h2{font-size:clamp(26px,4.6vw,32px); line-height:1.2; margin:0 0 24px}
+.rhythm{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:0; padding:0; list-style:none}
+.rhythm li{background:var(--card); border:1px solid var(--rule); border-radius:4px; padding:20px}
+.rhythm h3{font-size:20px; margin-bottom:6px}
+.rhythm h3::after{content:""; display:block; width:20px; height:2px; background:var(--brass); margin-top:8px}
+.rhythm p{margin:0; color:var(--muted); font-size:16px}
+.lines{margin:0; padding:0; list-style:none}
+.lines li{padding:14px 0; border-bottom:1px solid var(--rule)}
+.lines li:last-child{border-bottom:0}
+.lines b{font-weight:600}
+.sub{margin:32px 0 12px; font-family:var(--serif); font-size:20px}
+.doors{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.door{background:var(--card); border:1px solid var(--rule); border-radius:4px; padding:20px}
+.door.later{background:transparent; grid-column:1/-1}
+.door .when{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0 0 8px}
+.door p{margin:0}
+.facts p{margin:0 0 12px}
+.facts p:last-child{margin:0}
+.facts b{font-family:var(--serif); font-weight:400; font-variant:small-caps; text-transform:lowercase; letter-spacing:.06em; font-size:19px; margin-right:6px}
+.contact{padding:56px 0 48px; border-top:1px solid var(--rule)}
+.contact h2{margin-bottom:8px}
+.contact p{margin:0; color:var(--muted)}
+.contact a{color:var(--ink)}
+footer{padding:24px 0 48px; font-size:14px; color:var(--muted); border-top:1px solid var(--rule)}
+footer p{margin:0 0 6px}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  header.top{padding-top:28px}
+  .hero{padding:48px 0 40px}
+  section{padding:40px 0}
+  .rhythm,.doors{grid-template-columns:1fr}
+  .tag{float:none; display:block; margin:14px 0 0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="tag">Concept preview</span>
+    <a class="mark" href="./">Chiefhouse</a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Run your day from one place.</h1>
+      <p class="lead">Chiefhouse is a small team of AI agents that works as your chief of staff. Oli, the chief of staff, keeps the team on track. They do the legwork. You make the calls.</p>
+    </div>
+
+    <section aria-labelledby="day">
+      <p class="kicker">Your day</p>
+      <h2 id="day">A rhythm you can count on</h2>
+      <ul class="rhythm">
+        <li><h3>Morning briefing</h3><p>What's on today, what's waiting on you, and what slipped.</p></li>
+        <li><h3>Evening wrap</h3><p>What got done, what's still open, and what moves to tomorrow.</p></li>
+        <li><h3>Week ahead</h3><p>The week on one page, with clashes flagged before they happen.</p></li>
+      </ul>
+      <p class="sub">In between, the team does the work.</p>
+      <ul class="lines">
+        <li><b>Drafts.</b> Replies, notes and documents, ready for your yes.</li>
+        <li><b>Tracks promises.</b> Anything you or an agent said would happen, and when. Late ones show up in your briefing.</li>
+        <li><b>Sorts the calendar.</b> Spots conflicts and proposes the fix.</li>
+        <li><b>Handles the inbox and follow-ups.</b> Nothing quietly falls through.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="safe">
+      <p class="kicker">How it stays safe</p>
+      <h2 id="safe">Nothing goes out without you</h2>
+      <ul class="lines">
+        <li><b>You approve every outward action</b>, with a passkey on your phone.</li>
+        <li><b>Routine items clear in one tap.</b> Your attention goes where it matters.</li>
+        <li><b>Agents can't approve themselves.</b> A separate checker agent reviews the work before it reaches you.</li>
+        <li><b>Private data stays private.</b> Your information is yours, kept apart from everyone else's.</li>
+        <li><b>Everything is logged and can be undone.</b></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="reach">
+      <p class="kicker">How you reach it</p>
+      <h2 id="reach">Where you already are</h2>
+      <div class="doors">
+        <div class="door"><p class="when">Today</p><p>Email, and a web page for approvals.</p></div>
+        <div class="door"><p class="when">Next</p><p>The Chiefhouse app, on the web and on your phone.</p></div>
+        <div class="door later"><p class="when">Later</p><p>Texting an agent, voice calls, agents joining your meetings as guests, and a smart speaker at home.</p></div>
+      </div>
+    </section>
+
+    <section aria-label="Built on and status" class="facts">
+      <p><b>Built on</b> Claude, an open-source agent runtime, and one shared engine every agent runs on.</p>
+      <p><b>Status</b> In daily use by the person who built it. The app and a hosted version are coming.</p>
+    </section>
+
+    <div class="contact">
+      <h2>Interested?</h2>
+      <p><a href="mailto:konrad.kopczynski@gmail.com?subject=Chiefhouse">Get in touch</a>. I'm happy to show how it works.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>A concept preview by <a href="/">Konrad Kopczynski</a>. Not a product launch.</p>
+  </footer>
+</div>
+</body>
+</html>
