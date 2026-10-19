@@ -15,6 +15,13 @@
    "url": "https://jobs.ashbyhq.com/openai-deployment-company/5cd993bb-b9da-4df7-9ff0-3338c6bf4825"
   },
   {
+   "company": "Engine",
+   "title": "VP, AI Platform",
+   "remote": true,
+   "pay": "$336K–$400K",
+   "url": "https://job-boards.greenhouse.io/engine/jobs/7991134003"
+  },
+  {
    "company": "Mastercard",
    "title": "Vice President, Product - AI Center of Excellence",
    "remote": false,
@@ -237,6 +244,13 @@
    "remote": true,
    "pay": "pay not listed",
    "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7803651002"
+  },
+  {
+   "company": "Roboyo",
+   "title": "Global Head of Agentic Automation Capability",
+   "remote": false,
+   "pay": "not listed",
+   "url": "https://job-boards.eu.greenhouse.io/roboyo/jobs/4951756101"
   }
  ]
 }
