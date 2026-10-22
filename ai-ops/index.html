@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fractional Head of AI Ops · Konrad Kopczynski</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="One number, one system, 90 days. A fractional Head of AI Ops for multi-location businesses, from the operator who took field labor from 50% to 30% of revenue.">
+<script>
+(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+</script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF; --surface:#F9F9F9; --ink:#1D1E1E; --ink-2:#2F3333; --muted:#5C6161;
+  --rule:#E4E2E3; --accent:#C8133E; --accent-soft:#FBEFF2; --plum:#4E2F4B;
+  --sans:"Libre Franklin",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131314; --surface:#1B1B1D; --ink:#ECEBEB; --ink-2:#C9C7C8; --muted:#9A979A;
+    --rule:#2D2B2E; --accent:#E5484D; --accent-soft:#2B1719; --plum:#C9A6C4; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131314; --surface:#1B1B1D; --ink:#ECEBEB; --ink-2:#C9C7C8; --muted:#9A979A;
+  --rule:#2D2B2E; --accent:#E5484D; --accent-soft:#2B1719; --plum:#C9A6C4; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+body{margin:0; background:var(--bg); color:var(--ink-2); font-family:var(--sans); font-size:17px; line-height:1.7; padding:0 16px}
+.page{max-width:760px; margin:0 auto; padding-block:64px 72px; display:grid; gap:48px}
+h1,h2,h3{color:var(--ink); margin:0; text-wrap:balance}
+p{margin:0}
+.label{font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent)}
+
+.theme-toggle{position:fixed; top:calc(14px + env(safe-area-inset-top,0px)); right:16px; z-index:10; width:38px; height:38px; border-radius:50%; border:1px solid var(--rule); background:var(--surface); color:var(--ink); display:grid; place-items:center; cursor:pointer; padding:0}
+.theme-toggle:hover{border-color:var(--accent); color:var(--accent)}
+.theme-toggle:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.theme-toggle svg{width:18px; height:18px}
+.theme-toggle .sun{display:none}
+:root[data-theme="dark"] .theme-toggle .sun{display:block}
+:root[data-theme="dark"] .theme-toggle .moon{display:none}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .theme-toggle .sun{display:block}
+  :root:not([data-theme="light"]) .theme-toggle .moon{display:none}
+}
+
+header{display:grid; gap:18px}
+.back{font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 18px}
+.back a{color:var(--ink)}
+header h1{font-family:var(--mono); font-weight:700; color:var(--ink); font-size:clamp(30px,6vw,46px); line-height:1.08; letter-spacing:-.015em}
+.thesis{font-size:21px; line-height:1.45; font-weight:600; color:var(--ink); max-width:60ch}
+.cta{display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center}
+.btn{display:inline-block; font-family:var(--mono); font-size:14px; font-weight:700; letter-spacing:.04em; text-decoration:none; background:var(--accent); color:#fff; padding:13px 20px; border-radius:6px; border:1px solid var(--accent)}
+.btn:hover{background:var(--plum); border-color:var(--plum); color:#fff}
+.btn:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.cta .sub{font-size:15px}
+
+.figs{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+.fig{padding:18px 16px 18px 0; display:grid; gap:4px; align-content:start; min-width:0}
+.fig + .fig{padding-left:16px; border-left:1px solid var(--rule)}
+.fig b{font-family:var(--mono); font-weight:700; font-size:26px; line-height:1.1; color:var(--ink); font-variant-numeric:tabular-nums}
+.fig span{font-size:13.5px; color:var(--muted); line-height:1.4}
+@media (max-width:640px){
+  .figs{grid-template-columns:1fr 1fr}
+  .fig:nth-child(3){padding-left:0; border-left:0}
+  .fig:nth-child(n+3){border-top:1px solid var(--rule)}
+}
+
+section{display:grid; gap:18px}
+section > h2{font-family:var(--mono); font-weight:500; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); padding-bottom:10px; border-bottom:1px solid var(--rule)}
+section h3{font-size:17px; font-weight:600}
+.prose{max-width:65ch; display:grid; gap:16px}
+
+ul.plain{margin:0; padding-left:18px; display:grid; gap:8px}
+ul.plain li::marker{color:var(--accent)}
+
+.pipe{list-style:none; margin:0; padding:0; counter-reset:step; display:grid; border-left:1px solid var(--rule); margin-left:13px}
+.pipe li{counter-increment:step; position:relative; padding:0 0 22px 30px}
+.pipe li:last-child{padding-bottom:0}
+.pipe li::before{content:counter(step); position:absolute; left:-14px; top:0; width:27px; height:27px; border-radius:50%; background:var(--surface); border:1px solid var(--accent); color:var(--accent); font-family:var(--mono); font-size:12.5px; display:grid; place-items:center}
+.pipe h3{font-size:15.5px; font-weight:600; line-height:27px}
+.pipe .when{font-family:var(--mono); font-size:12px; letter-spacing:.06em; color:var(--muted); font-weight:500; margin-left:8px}
+.pipe p{font-size:15.5px}
+
+.vs{width:100%; border-collapse:collapse; font-size:15px; line-height:1.5}
+.vs-wrap{overflow-x:auto}
+.vs th{font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; text-align:left; color:var(--muted); padding:0 14px 10px 0; border-bottom:1px solid var(--rule)}
+.vs th:last-child{color:var(--accent)}
+.vs td{padding:12px 14px 12px 0; border-bottom:1px solid var(--rule); vertical-align:top; width:50%}
+.vs td:first-child{color:var(--muted)}
+.vs td:last-child{color:var(--ink)}
+
+.terms{display:grid; grid-template-columns:repeat(2,1fr); gap:0; border-top:1px solid var(--rule)}
+.term{padding:16px 16px 16px 0; border-bottom:1px solid var(--rule); display:grid; gap:4px; align-content:start}
+.term:nth-child(even){padding-left:16px; border-left:1px solid var(--rule)}
+.term b{font-family:var(--mono); font-size:18px; color:var(--ink); font-variant-numeric:tabular-nums}
+.term span{font-size:14.5px; line-height:1.5}
+@media (max-width:640px){
+  .terms{grid-template-columns:1fr}
+  .term:nth-child(even){padding-left:0; border-left:0}
+}
+
+figure{margin:0; display:grid; gap:10px}
+.shot{border:1px solid var(--rule); border-radius:6px; overflow:hidden; background:var(--surface)}
+.shot img{display:block; width:100%; height:auto}
+.shot .dk{display:none}
+:root[data-theme="dark"] .shot .lt{display:none}
+:root[data-theme="dark"] .shot .dk{display:block}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .shot .lt{display:none}
+  :root:not([data-theme="light"]) .shot .dk{display:block}
+}
+figcaption{font-size:14px; color:var(--muted); line-height:1.5}
+figcaption b{color:var(--ink); font-weight:600}
+
+.faq{display:grid; gap:18px}
+.faq h3{font-size:16px}
+.faq p{font-size:15.5px; max-width:65ch}
+
+.close{border:1px solid var(--rule); border-radius:6px; padding:24px; background:var(--accent-soft); display:grid; gap:14px}
+.close h2{font-family:var(--mono); font-size:22px; line-height:1.25}
+.close p{color:var(--ink); max-width:60ch}
+.close .contact{font-family:var(--mono); user-select:all}
+
+footer{border-top:1px solid var(--rule); padding-top:20px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 24px; font-size:14px; color:var(--muted)}
+footer .contact{font-family:var(--mono); color:var(--ink); user-select:all}
+a{color:var(--accent); text-underline-offset:3px}
+a:hover{color:var(--plum)}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+</style>
+</head>
+<body>
+<button class="theme-toggle" type="button" aria-label="Switch between light and dark mode">
+  <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+<div class="page">
+
+  <header>
+    <div class="back"><span class="label">Fractional Head of AI Ops · multi-location businesses</span><span>Konrad Kopczynski</span></div>
+    <h1>One number. One system. 90&nbsp;days.</h1>
+    <p class="thesis">I find the one number that moves EBITDA across your locations, then build the system that moves it, and keeps it moving after the 90 days are up.</p>
+    <div class="cta">
+      <a class="btn" data-book href="https://cal.com/kopczynski/30min?r=ai-ops">Book a 30-minute call</a>
+      <a class="sub" href="/proof/titan/">See the system I built &rarr;</a>
+    </div>
+  </header>
+
+  <div class="figs" aria-label="Results from the system I built">
+    <div class="fig"><b>50→30%</b><span>Field labor as a share of revenue</span></div>
+    <div class="fig"><b>$100–150</b><span>Cost per hire, down from about $1,000</span></div>
+    <div class="fig"><b>~100%</b><span>Of invoices collected, plus ~$20K of bad debt recovered</span></div>
+    <div class="fig"><b>120+</b><span>Locations licensed by a national franchise group, 70+ live</span></div>
+  </div>
+
+  <section>
+    <h2>Who this is for</h2>
+    <ul class="plain">
+      <li><b>PE operating partners</b> with a multi-location services platform, where the AI spend isn't showing up in the numbers yet.</li>
+      <li><b>CEOs, COOs and multi-unit franchisees with 5 to 150 locations or crews</b>, including platforms built by acquisition on several systems, who want a senior person who will own a result, not write a strategy deck.</li>
+      <li><b>Not a fit</b> if you want a chatbot on your website, a list of AI tools to buy, or a team of juniors. It's me, on at most four companies at a time.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <ol class="pipe">
+      <li><h3>The audit <span class="when">2 weeks · fixed price</span></h3><p>I read your data across every location and sort the problems into a few buckets. Each owner or GM gets the 3 things to do next, not a dashboard. It's yours whether or not we keep going, and the fee is credited to the first month if we do.</p></li>
+      <li><h3>Pick the number <span class="when">week 3</span></h3><p>Together we choose the one number to move: labor as a share of revenue, days to get paid, cost per hire, close rate, or hours of manual re-keying between systems. Then I write down how your best operator makes the calls behind it. That judgment becomes the rules.</p></li>
+      <li><h3>Build it and run it <span class="when">90 days</span></h3><p>The smallest system that moves the number, live in your locations, not in a demo. It checks itself every night against your source systems. People keep the calls that need judgment. You get one written update a week, with the number on top.</p></li>
+      <li><h3>Keep going or hand it over <span class="when">after day 90</span></h3><p>Month to month on 30 days' notice. Everything is documented as it's built, so you can stop, move to the next number, or have me help you hire the person who runs it in-house.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>What's different</h2>
+    <p class="prose">Anyone can build with AI now, and a model gives you the average answer. What you're paying for is the judgment about what to build and the discipline to make it run.</p>
+    <div class="vs-wrap">
+      <table class="vs">
+        <thead><tr><th>What most AI projects deliver</th><th>What you get here</th></tr></thead>
+        <tbody>
+          <tr><td>A dashboard with every metric</td><td>One number, and the 3 things each GM does about it this week</td></tr>
+          <tr><td>A pilot that works in the demo</td><td>A system live in your locations that reconciles itself every night</td></tr>
+          <tr><td>The model's average answer</td><td>Your best operator's judgment, written down and turned into rules</td></tr>
+          <tr><td>An advisor who recommends, or an agency that builds</td><td>One person who has run the P&amp;L and built the system</td></tr>
+          <tr><td>A tool handed over at the end</td><td>Something that keeps running after day 90, with the runbooks to prove it</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>The proof</h2>
+    <div class="prose">
+      <p>I ran a group of home-services franchise locations that depended on what a few people knew and five systems that didn't talk to each other. The number that mattered was field labor as a share of revenue. I built Titan, the system that runs the day: it scores and screens job applicants by text, chases every invoice, and sends each manager a morning email with what to do today.</p>
+      <p>Labor went from 50% to 30% of revenue. A national franchise group now licenses it across 120+ locations.</p>
+    </div>
+    <figure>
+      <div class="shot">
+        <img class="lt" src="/proof/titan/pulse-light.png" alt="The daily scorecard email a manager receives, with today's numbers and actions" loading="lazy">
+        <img class="dk" src="/proof/titan/pulse-dark.png" alt="" loading="lazy">
+      </div>
+      <figcaption><b>The morning email.</b> Each manager's numbers and what to act on today, with names and dollar figures blurred. <a href="/proof/titan/">Full case study and a 6-minute walkthrough</a>.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Terms</h2>
+    <div class="terms">
+      <div class="term"><b>$10,000 a month</b><span>For 90 days, then month to month on 30 days' notice.</span></div>
+      <div class="term"><b>Audit first</b><span>Two weeks, fixed price agreed on the first call, credited to month one.</span></div>
+      <div class="term"><b>About 4 days a month</b><span>Of my time, plus the system working every day in between.</span></div>
+      <div class="term"><b>At most 4 companies</b><span>I'm in the delivery on every one. Nothing gets handed to a junior.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Questions people ask</h2>
+    <div class="faq">
+      <div><h3>What if you're unavailable?</h3><p>Everything is documented as it's built and the system checks itself overnight, so it doesn't depend on me being in the room. If you'd rather own it in-house, I'll help you hire the person who takes it over.</p></div>
+      <div><h3>We run on different systems across locations. Does that rule us out?</h3><p>No, that's often where the money is. The audit maps every location's back office, shows where the numbers disagree, and picks a number that can be moved without re-platforming first. Titan runs on Jobber today; for other systems I connect through their APIs, and the audit confirms what's reachable before you commit to more.</p></div>
+      <div><h3>Where does our data go?</h3><p>It stays in your systems. I work through access you grant and can revoke at any time, and nothing is copied out that the work doesn't need.</p></div>
+      <div><h3>We already bought AI tools, or have a firm helping us.</h3><p>Fine. I own the number, not the vendor list. I'll use what you've already paid for where it moves the number, and say plainly where it doesn't.</p></div>
+      <div><h3>Who have you done this for?</h3><p>My own locations first, then a national franchise group that licenses the system. Before that I built and sold impakt, a data consultancy, and doubled revenue per employee at Croud.</p></div>
+    </div>
+  </section>
+
+  <div class="close" id="book">
+    <h2>Is there one number you'd most like to move in the next 90 days?</h2>
+    <p>Book 30 minutes. Bring the number, or the problem you think is behind it. You'll leave with my honest view of whether it can be moved, and how I'd start.</p>
+    <div class="cta">
+      <a class="btn" data-book href="https://cal.com/kopczynski/30min?r=ai-ops">Book a 30-minute call</a>
+      <span class="sub">or email <span class="contact">konrad@kopczynski.us</span></span>
+    </div>
+  </div>
+
+  <footer>
+    <span>Konrad Kopczynski · Kingston, NY</span>
+    <span class="contact">konrad@kopczynski.us</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.querySelector(".theme-toggle");
+  function current(){var t=root.getAttribute("data-theme"); if(t) return t; return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}
+  btn.addEventListener("click",function(){var next=current()==="dark"?"light":"dark"; root.setAttribute("data-theme",next); try{localStorage.setItem("theme",next);}catch(e){}});
+})();
+</script>
+<script>
+/* PostHog for the fractional page (same project and referral-code handling as the profile). */
+(function(){
+  var POSTHOG_KEY = "phc_tGpWqkQ6zRt2VsrHctNjUa9wKNWypJqdsZA5c9nxHH73";
+  var POSTHOG_HOST = "https://us.i.posthog.com";
+  var ref = null;
+  try { ref = new URLSearchParams(location.search).get("r"); } catch(e){}
+  try { if (ref) localStorage.setItem("kk_ref", ref); else ref = localStorage.getItem("kk_ref"); } catch(e){}
+  // carry the referral code into the booking link so bookings can be traced to the send
+  if (ref) document.querySelectorAll("[data-book]").forEach(function(a){ try { var u = new URL(a.href); u.searchParams.set("r", ref); a.href = u.toString(); } catch(e){} });
+  var NOW = {send_instantly: true, transport: "sendBeacon"};
+  if (POSTHOG_KEY) {
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once identify setPersonProperties reset get_distinct_id".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init(POSTHOG_KEY, {api_host: POSTHOG_HOST, person_profiles: "identified_only"});
+    if (ref) { posthog.register({referrer_code: ref}); posthog.register_once({first_referrer_code: ref}); }
+  }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest && e.target.closest("a"); if (!a || !window.posthog || !window.posthog.capture) return;
+    if (a.hasAttribute("data-book")) window.posthog.capture("booking_clicked", {page: "ai-ops"}, NOW);
+    else if (/\/proof\/titan\/?$/.test(a.getAttribute("href")||"")) window.posthog.capture("case_study_opened", {from: "ai-ops"}, NOW);
+  });
+})();
+</script>
+</body>
+</html>
