@@ -1,11 +1,25 @@
 {
  "roles": [
   {
+   "company": "ServiceTitan",
+   "title": "Sr Director, Data Science & Analytics",
+   "remote": true,
+   "pay": "NY zone $319.6K–$479.4K",
+   "url": "https://servicetitan.wd1.myworkdayjobs.com/ServiceTitan/job/US-Remote/Sr-Director--Data-Science-and-Analytics_JR115740"
+  },
+  {
    "company": "Ode with Anthropic",
    "title": "Principal, AI Transformation",
    "remote": false,
    "pay": "$300K–$450K",
    "url": "https://jobs.ashbyhq.com/odewithanthropic/e2cd283d-72cb-4293-8095-15a0cde0e292"
+  },
+  {
+   "company": "Zendesk",
+   "title": "VP, Global Customer Experience – AI-Powered Support",
+   "remote": false,
+   "pay": "$289K–$433K",
+   "url": "https://zendesk.wd1.myworkdayjobs.com/en-US/zendesk/job/San-Francisco-California-United-States-of-America/Vice-President--Global-Customer-Experience---AI-Powered-Support_R35519"
   },
   {
    "company": "OpenAI Deployment Company",
@@ -27,6 +41,13 @@
    "remote": false,
    "pay": "$245K–$391K",
    "url": "https://mastercard.wd1.myworkdayjobs.com/CorporateCareers/job/New-York-City-New-York/Vice-President--Product---AI-Center-of-Excellence_R-282197"
+  },
+  {
+   "company": "ServiceNow",
+   "title": "Principal, AI Deployment Strategist, FDE",
+   "remote": false,
+   "pay": "$221.2K–$387.1K (NY)",
+   "url": "https://careers.servicenow.com/jobs/744000155133610/principal-ai-deployment-strategist-fde/"
   },
   {
    "company": "OpenAI",
@@ -134,6 +155,13 @@
    "url": "https://jobs.ashbyhq.com/permitflow/6acf9264-aed4-45b3-854c-ed19283c16d0"
   },
   {
+   "company": "iRhythm",
+   "title": "Director, AI Platform & Transformation",
+   "remote": true,
+   "pay": "$218K–$284K",
+   "url": "https://irhythmtech.wd5.myworkdayjobs.com/iRhythm/job/Remote---US/Director--AI-Platform---Transformation_JR1774"
+  },
+  {
    "company": "WorkOS",
    "title": "Applied AI Engineer",
    "remote": false,
@@ -146,6 +174,20 @@
    "remote": true,
    "pay": "$250K–$275K",
    "url": "https://jobs.ashbyhq.com/polymarket/0752edc4-e728-4946-b3d9-4719a6271072"
+  },
+  {
+   "company": "Kemper",
+   "title": "Vice President, Data Solutions & AI",
+   "remote": false,
+   "pay": "$225K–$275K",
+   "url": "https://kemper.wd5.myworkdayjobs.com/Kemper_Careers/job/Chicago-Illinois/Vice-President--Data-Solutions---AI_R-26-0038845"
+  },
+  {
+   "company": "Instacart",
+   "title": "Director, AI Solutions Strategy & Planning",
+   "remote": false,
+   "pay": "NY $248K–$261.5K",
+   "url": "https://instacart.careers/job/?gh_jid=8265981"
   },
   {
    "company": "Writer",
