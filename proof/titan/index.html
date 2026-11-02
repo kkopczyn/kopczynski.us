@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Titan case study · Konrad Kopczynski</title>
-<meta name="description" content="How an AI operating system took field labor from 50% to 30% of revenue in the franchise locations where it was built, and why a national franchise group now licenses it across 120+ locations.">
+<meta name="description" content="How an AI operating system took field labor from 50% to 30% of revenue in the franchise locations where it was built, and how it was built and run across 120+ locations.">
 <script>
 (function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
 </script>
@@ -120,7 +120,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 
   <header>
     <div class="back"><span class="label">Case study · Titan · 2026</span><a href="/">Konrad Kopczynski</a></div>
-    <h1>How we took field labor from 50% to 30% of revenue, and turned it into a system a 120+ location franchise network runs on</h1>
+    <h1>How we took field labor from 50% to 30% of revenue in home services franchise locations, then built and ran it across 120+ of them</h1>
     <p class="thesis">Our franchise locations ran on what a few people knew and five systems that didn't talk to each other. I turned that into a system that runs the day, measures itself, and leaves people the decisions that need them.</p>
   </header>
 
@@ -128,9 +128,22 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     <div class="fig"><b>50→30%</b><span>Field labor as a share of revenue</span></div>
     <div class="fig"><b>$100–150</b><span>Cost per hire, down from about $1,000</span></div>
     <div class="fig"><b>~100%</b><span>Of invoices collected, plus ~$20K of bad debt recovered</span></div>
-    <div class="fig"><b>120+</b><span>Locations licensed by a national franchise group, 70+ live so far</span></div>
+    <div class="fig"><b>120+</b><span>Home services locations Titan was built and run across</span></div>
   </div>
 
+
+  <section id="day">
+    <h2>A day on Titan</h2>
+    <p class="prose">Titan was built for home services companies that send crews to houses, running on Jobber. This is what it does for an owner each day, and the office work each step replaces.</p>
+    <ul class="plain">
+      <li><b>3am.</b> Checks every job, visit and invoice against Jobber and fixes anything that drifted. No one cleans up data by hand.</li>
+      <li><b>5am.</b> Each manager gets yesterday's numbers: quotes sent, conversion, invoiced, collected, dollars per van per day against target. No one builds reports.</li>
+      <li><b>During the day.</b> Booking a new job, it suggests the days when a crew is already working nearby, so crews drive less. When a slot opens, it finds a future job to pull forward. No one plays dispatcher on the phone.</li>
+      <li><b>6pm.</b> Every visit from today, and which ones still need invoicing or still need paying. No one hunts for unbilled work, and close to 100% of invoices get paid.</li>
+      <li><b>Any time someone applies.</b> The applicant gets a text within minutes, is screened by text, and gets an interview booked with the GM as soon as possible. No recruiter or staffing agency, and cost per hire is $100–150.</li>
+      <li><b>Monday 5am.</b> The weekly report for each location and each salesperson.</li>
+    </ul>
+  </section>
 
   <section id="walkthrough">
     <h2>Watch it run: a 6-minute walkthrough</h2>
@@ -149,10 +162,10 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   <section>
     <h2>What I built</h2>
     <div class="prose">
-      <p>I built Titan, an AI operating system for multi-location service businesses, and ran our own locations on it first. It handles reporting, quoting, invoicing, collections, recruiting and dispatch.</p>
+      <p>I built Titan, an AI operating system for home services companies, and ran our own window cleaning locations on it first. It handles reporting, quoting, invoicing, collections, recruiting and dispatch.</p>
       <div class="block">
         <h3>Pulse: built around decisions, not dashboards</h3>
-        <p>Every number that runs the day is on one screen: quotes sent, conversion, invoiced, collected, gross margin, dollars per van per day. The same numbers land in an email twice a day so nobody has to go looking. The 6pm email lists every visit from that day and which ones still need invoicing or still need paying. That email is what shortened our cash cycle.</p>
+        <p>Every number that runs the day is on one screen: quotes sent, conversion, invoiced, collected, gross margin, dollars per van per day. The same numbers land in an email at 5am and 6pm so nobody has to go looking. The 6pm email lists every visit from that day and which ones still need invoicing or still need paying. That email is what shortened our cash cycle.</p>
         <p>Each view starts from the decision someone has to make, like what to invoice, what to chase, where to send an open crew. When a number would mislead, the system holds it back instead of showing it.</p>
       </div>
     </div>
@@ -183,7 +196,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     <div class="prose">
       <div class="block">
         <h3>A recruiting agent</h3>
-        <p>Someone texts the hiring line. The agent screens them on the spot and scores them against the three things we actually hire for: friendliness, hustle and quality. The GM gets a candidate and a transcript, and makes the call.</p>
+        <p>Someone applies or texts the hiring line, often at night after a shift. The agent texts back within minutes, screens them, and scores them against the three things we actually hire for: friendliness, hustle and quality. Good candidates get an interview booked with the GM as soon as possible, before another company calls them first. The GM gets the transcript and makes the call.</p>
       </div>
       <div class="block">
         <h3>Dispatch</h3>
@@ -207,13 +220,29 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     </div>
   </section>
 
+  <section id="ops-agent">
+    <h2>What I'm running now: an operations agent next to the GMs</h2>
+    <div class="prose">
+      <p>The newest piece runs alongside the general managers at our two locations, one in the Hudson Valley and one in Palm Beach. It works across the tools the team already uses: the field-service software, the phone and text lines, the shared inbox and the crews' WhatsApp groups. It reads everything. Anything going to a customer or a staff member comes to me for approval first.</p>
+      <p>What it does on a schedule:</p>
+      <ul class="plain">
+        <li><b>Next-morning closeout.</b> Confirms yesterday's jobs were closed out and invoiced. Before nudging a GM about a missing invoice, it reads the job notes, texts, calls and voicemails for a problem, and holds those jobs for me with the reason.</li>
+        <li><b>Unpaid invoices.</b> Drafts a short personal text for every open invoice, skipping anyone with a complaint, a dispute, cash already paid or a text in the last day. I approve, it sends, and the office gets a list of what went out.</li>
+        <li><b>GM follow-through.</b> Twice a day it looks for calls, texts and emails left unanswered for about three business days, checks the field-service software first, and only raises real gaps.</li>
+        <li><b>Appointment confirmations.</b> Every Monday it checks the next four weeks of visits against the texts, drafts confirmations for anyone who hasn't confirmed, and flags odd cases like duplicate bookings or a visit booked on a holiday.</li>
+        <li><b>Weekly report review and one-off watches.</b> It reads the weekly report for invoices never sent or quotes left hanging, and runs short-lived watches for things like a vehicle pickup that alert me only when something happens.</li>
+      </ul>
+      <p>It stays quiet unless something needs attention, and the team didn't have to change how they work. These checks will become part of Titan's next version.</p>
+    </div>
+  </section>
+
   <section>
     <h2>The numbers</h2>
     <ul class="plain">
       <li>Field labor fell from 50% to 30% of revenue.</li>
       <li>Cost per hire went from about $1,000 to $100–150.</li>
       <li>Nearly 100% of invoices collected, and about $20K of bad debt recovered.</li>
-      <li>A national franchise group licensed it for all 120+ of its locations and pays per location per month. 70+ are live so far, on the same system.</li>
+      <li>Built and ran across 120+ home services locations in two franchise systems.</li>
       <li>On the build side, one person running AI coding agents did the work of a team of about seven. 975 changes shipped, each through automated review, 21 automated checks and a deploy that rolls itself back if it breaks.</li>
     </ul>
   </section>
@@ -243,7 +272,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   </section>
   <section>
     <h2>What it shows</h2>
-    <p class="prose">The method isn't specific to window cleaning or franchises. It's how I'd approach any operation that runs on a few people's judgment.</p>
+    <p class="prose">Titan fits home services companies with a few locations or a growing team: window cleaning, painting, cleaning, and trades like HVAC and plumbing. The method behind it fits any business with several locations doing the same work, where the important calls live in a few people's heads.</p>
     <ol class="pipe">
       <li><h3>Find the one number that matters most</h3><p>For us it was labor as a share of revenue. Everything else came after.</p></li>
       <li><h3>Write down how the best operator makes the calls behind it</h3><p>What to invoice, who to hire, where to send a crew. That judgment becomes the rules, the training material and the scoring.</p></li>
@@ -253,7 +282,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   </section>
 
   <div class="close">
-    <p>If you're trying to do this in your operation, I'm happy to compare notes.</p>
+    <p>If you're trying to do this in your operation, <a href="/ai-ops/">here's how I work with teams fractionally</a>, or just email me to compare notes.</p>
     <p>More on how I work at <a href="https://kopczynski.us/">kopczynski.us</a>.</p>
   </div>
 
