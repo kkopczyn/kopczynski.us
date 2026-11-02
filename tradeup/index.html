@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Konrad Kopczynski for TradeUp</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="Konrad Kopczynski, fractional engineering and AI lead: relevant work and how an engagement with TradeUp could run.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+<style>
+:root{
+  --bg:#FAF8F5; --surface:#FFFFFF; --ink:#1B1D1F; --ink2:#3A3E42; --muted:#6B7177;
+  --rule:#E6E1DA; --accent:#B4501E; --accent-soft:#F7EAE2; color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141516; --surface:#1C1E20; --ink:#EDEBE8; --ink2:#C9C6C1; --muted:#9A9792;
+    --rule:#2E3033; --accent:#E8885A; --accent-soft:#2B1E17; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141516; --surface:#1C1E20; --ink:#EDEBE8; --ink2:#C9C6C1; --muted:#9A9792;
+  --rule:#2E3033; --accent:#E8885A; --accent-soft:#2B1E17; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink2);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.6;padding:0 16px}
+.page{max-width:760px;margin:0 auto;padding:48px 0 64px}
+h1,h2{font-family:"Source Serif 4",Georgia,serif;color:var(--ink);line-height:1.2}
+h1{font-size:clamp(30px,6vw,42px);margin:0 0 12px}
+.lede{font-size:clamp(17px,2.6vw,19px);color:var(--ink);margin:0 0 8px;max-width:60ch}
+.contact-top{font-size:14px;color:var(--muted);margin:0}
+.contact-top a,.contact a{color:var(--accent);text-decoration:none;font-weight:500}
+.contact-top a:hover,.contact a:hover{text-decoration:underline}
+section{border-top:1px solid var(--rule);margin-top:36px;padding-top:28px}
+h2{font-size:24px;margin:0 0 14px}
+p{margin:0 0 14px;max-width:68ch}
+.kicker{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 4px}
+.stat{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:14px}
+.stat b{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:24px;color:var(--ink);font-variant-numeric:tabular-nums}
+.stat span{font-size:13.5px;color:var(--muted);line-height:1.4;display:block}
+.work{display:grid;gap:14px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px 18px 6px}
+.card h3{font-size:17px;color:var(--ink);margin:0 0 8px;font-weight:600}
+.card .fit{background:var(--accent-soft);border-radius:6px;padding:10px 12px;font-size:14.5px;color:var(--ink)}
+.card .fit strong{color:var(--accent)}
+ol.steps{list-style:none;padding:0;margin:0;display:grid;gap:12px;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:16px 16px 4px 56px;background:var(--surface);border:1px solid var(--rule);border-radius:10px}
+ol.steps li::before{content:counter(s);position:absolute;left:16px;top:15px;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center}
+ol.steps h3{font-size:16.5px;color:var(--ink);margin:0 0 6px;font-weight:600}
+ul.bg{list-style:none;padding:0;margin:0}
+ul.bg li{padding:10px 0;border-bottom:1px solid var(--rule)}
+ul.bg li:last-child{border-bottom:0}
+ul.bg b{color:var(--ink);font-weight:600}
+.contact{font-size:17px}
+footer{margin-top:40px;font-size:13px;color:var(--muted)}
+@media (max-width:560px){
+  .page{padding-top:32px}
+  .stats{grid-template-columns:1fr}
+  .stat{display:flex;align-items:baseline;gap:12px}
+  .stat b{font-size:21px;min-width:96px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <p class="kicker">For Ryan and the TradeUp team</p>
+    <h1>Konrad Kopczynski</h1>
+    <p class="lede">Fractional engineering and AI lead. I built and ran Titan, an AI operating system for home-services companies, across 120+ locations.</p>
+    <p class="contact-top"><a href="mailto:konrad.kopczynski@gmail.com">konrad.kopczynski@gmail.com</a> · <a href="https://kopczynski.us">kopczynski.us</a></p>
+    <div class="stats">
+      <div class="stat"><b>120+</b><span>home-services locations Titan was built and run across</span></div>
+      <div class="stat"><b>$100-150</b><span>cost per technician hire, down from about $1,000</span></div>
+      <div class="stat"><b>975</b><span>changes shipped by one operator and 80+ AI agents</span></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Why TradeUp</h2>
+    <p>TradeUp is building the system trade-school career services runs on: placements tracked, verified and ready for an audit. I've spent the last year building the same kind of system on the employer side of the trades.</p>
+    <p>Titan ran daily operations for multi-location home-services companies, mostly franchise locations in window cleaning, painting and similar field work, across two franchise systems and 120+ locations.</p>
+    <p>Three parts of it map closely to what TradeUp needs: reaching trade workers by text, keeping data an outsider will trust, and shipping quickly with a small team.</p>
+  </section>
+
+  <section>
+    <h2>Relevant work</h2>
+    <div class="work">
+      <article class="card">
+        <h3>Technician recruiting by text</h3>
+        <p>An applicant gets a text within minutes of applying. An AI agent runs the screening conversation, nudges people who go quiet and opens a thread for the hiring manager with a score and a summary. Every applicant gets screened, the score only sets priority. Questions that need exact wording, like work authorization, go out word for word, so every transcript is consistent.</p>
+        <p>Cost per hire went from about $1,000 to $100 to $150.</p>
+        <p class="fit"><strong>For TradeUp:</strong> the same engine could confirm graduate employment by text and then confirm with the employer, with both answers logged for the placement file.</p>
+      </article>
+      <article class="card">
+        <h3>Data pipelines people trust</h3>
+        <p>Titan takes webhooks from Jobber and ServiceMinder into Postgres and BigQuery in real time, reconciles nightly and keeps every version of every record. That history is what makes a number defensible. It feeds a daily dashboard and a twice-daily email for owners.</p>
+        <p>Before Titan, at Croud, I built a guided data-entry tool for campaign naming that cut my team's error-fixing time by about 80% and became a self-serve tool worth $5M in annualized savings.</p>
+        <p class="fit"><strong>For TradeUp:</strong> placement rates by program and campus that hold up when an auditor asks where each number came from.</p>
+      </article>
+      <article class="card">
+        <h3>A build system for a small team</h3>
+        <p>I run 80+ AI coding agents in parallel. Every change gets a written plan, review by architecture, security and test-coverage agents, 21 automated checks, its own preview environment with browser tests, and my approval before a merge queue ships it. Deploys roll themselves back if they fail.</p>
+        <p>About 975 changes shipped this way, replacing a roughly 7-person engineering team. A senior engineering leader at Adobe told me they are building similar tooling internally.</p>
+        <p class="fit"><strong>For TradeUp:</strong> a part-time CTO with this pipeline ships like a full team, with a security review on every change.</p>
+      </article>
+      <article class="card">
+        <h3>Agents with guardrails</h3>
+        <p>Titan's chat and agent engine has write tools only where enabled, approvals by risk and role, spend caps and an emergency off switch. With student records, that's where I'd start.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it could work</h2>
+    <ol class="steps">
+      <li>
+        <h3>30-day technical sprint</h3>
+        <p>Week one: an architecture and security review of the product and data model, with findings ranked by risk. Weeks one and two: set up the build pipeline on your repo, owned by your CTO. Weeks two to four: ship one feature live for your design partner, for example graduate employment verification by text.</p>
+      </li>
+      <li>
+        <h3>Then 1 to 2 days a week</h3>
+        <p>Fractional engineering lead alongside your CTO: architecture, the data and verification layer, AI features, code review.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Background</h2>
+    <ul class="bg">
+      <li><b>Croud, 2021 to 2026.</b> VP Data &amp; Intelligence. Ran a 43-person team and a $9M global analytics P&amp;L. Grew analytics revenue from $2.3M to $5.7M in two years.</li>
+      <li><b>impakt Advisors, 2016 to 2021.</b> Founded an analytics consultancy, grew it to $700K revenue and sold it to Croud.</li>
+      <li><b>Fitzgerald Analytics, 2011 to 2016.</b> Analyst to Director on data strategy work for TD Ameritrade, Bridgestone Firestone and others.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p class="contact"><a href="mailto:konrad.kopczynski@gmail.com">konrad.kopczynski@gmail.com</a> · <a href="https://kopczynski.us">kopczynski.us</a></p>
+  </section>
+
+  <footer>Introduced by Eric Friedman.</footer>
+</main>
+</body>
+</html>
