@@ -187,17 +187,19 @@ header h1.headline{font-size:clamp(28px,5.2vw,42px); line-height:1.12}
 .cta{display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center}
 .loop5{list-style:none; margin:4px 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; counter-reset:none}
 .loop5 .stage{position:relative; background:var(--surface); border:1px solid var(--rule); border-radius:6px; padding:14px 14px 12px; display:grid; gap:6px; align-content:start}
-.loop5 .stage:not(.next):not(:nth-child(5))::after{content:"\2192"; position:absolute; right:-11px; top:16px; color:var(--accent); font-family:var(--mono); font-size:14px; background:var(--bg); line-height:1; padding:1px 0}
+.loop5 .stage:not(.next):not(:nth-child(6))::after{content:"\2192"; position:absolute; right:-11px; top:16px; color:var(--accent); font-family:var(--mono); font-size:14px; background:var(--bg); line-height:1; padding:1px 0}
 .loop5 .stage:not(.next):nth-child(3)::after{content:none}
-.loop5 .stage.next{border-style:dashed; border-color:var(--accent); background:var(--accent-soft)}
+.loop5 .stage.next{grid-column:1 / -1; border-style:dashed; border-color:var(--accent); background:var(--accent-soft)}
 .loop5 .k{font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent)}
 .loop5 b{font-size:15px; color:var(--ink); line-height:1.3}
 .loop5 ul{margin:0; padding-left:16px; display:grid; gap:4px}
 .loop5 li li{font-size:13.5px; line-height:1.45; color:var(--ink-2)}
 .loop5 li li::marker{color:var(--accent)}
+.loop5 .stage.next ul{grid-template-columns:1fr 1fr; column-gap:24px}
 @media (max-width:760px){
   .loop5{grid-template-columns:1fr}
-  .loop5 .stage:not(.next):not(:nth-child(5))::after,.loop5 .stage:not(.next):nth-child(3)::after{content:"\2193"; right:auto; left:50%; top:auto; bottom:-12px}
+  .loop5 .stage.next ul{grid-template-columns:1fr}
+  .loop5 .stage:not(.next):not(:nth-child(6))::after,.loop5 .stage:not(.next):nth-child(3)::after{content:"\2193"; right:auto; left:50%; top:auto; bottom:-12px}
 }
 a.btn{display:inline-block; text-decoration:none; color:#fff}
 a.btn:hover{color:#fff}
@@ -248,44 +250,59 @@ a.btn:hover{color:#fff}
 
   <section id="build">
     <h2>How I build</h2>
-    <p class="lede">I built Titan by running AI coding agents in parallel, 80+ at a time, and shipped 975 changes, about the output of a seven-person engineering team. Every change goes around the same loop, and the loop is part of Titan itself.</p>
-    <ol class="loop5" aria-label="How a change gets built and shipped">
-      <li class="stage"><span class="k">1 · In</span><b>Work comes in three ways</b>
+    <p class="lede">I built Titan by running AI coding agents in parallel, 80+ at a time, and shipped 975 changes, about the output of a seven-person engineering team. Every change goes around the same loop, from someone's idea to a fix in production and back to the person who asked.</p>
+    <ol class="loop5" aria-label="How a change gets built, shipped and healed">
+      <li class="stage"><span class="k">1 · In</span><b>Feedback and the roadmap</b>
         <ul>
-          <li>A feedback bubble on every page of Titan, plus thumbs up or down on every agent reply</li>
-          <li>The roadmap inside Titan, where people request features, vote and comment</li>
-          <li>The overnight error scan</li>
+          <li>A feedback bubble on every page of Titan, and thumbs up or down on every agent reply</li>
+          <li>Feedback by email and Missive, sorted by AI</li>
+          <li>A roadmap inside Titan where people request features, vote and comment</li>
+          <li>A 7am plan email and a Monday digest built from all of it</li>
         </ul></li>
       <li class="stage"><span class="k">2 · Plan</span><b>A written plan first</b>
         <ul>
           <li>Posted to the roadmap where anyone can comment</li>
           <li>Big or risky plans get three AI reviewers before any code</li>
-          <li>I approve it</li>
+          <li>Every feature maps to the files it owns, so agents get warned before they step on each other</li>
+          <li>Decisions get logged as they're made</li>
         </ul></li>
       <li class="stage"><span class="k">3 · Build</span><b>Agents build in parallel</b>
         <ul>
           <li>Each feature is claimed into its own copy of the code and its own session, up to 37 at once</li>
           <li>A session can crash and the work picks up where it stopped</li>
-          <li>Agents email me when they're stuck or done, and I can check on any of them from my phone</li>
+          <li>Agents email me when they're stuck, and I can check any of them from my phone</li>
+          <li>Cost is tracked on every agent run</li>
         </ul></li>
-      <li class="stage"><span class="k">4 · Check</span><b>Gates before anything ships</b>
+      <li class="stage"><span class="k">4 · Check</span><b>Gates before anything merges</b>
         <ul>
           <li>Four AI reviewers: safety, architecture, test coverage, and one trained on my own past reviews</li>
           <li>21 automated checks</li>
-          <li>A live preview of every change, tested in a browser</li>
+          <li>A live preview of every change, on a copy of real data, tested in a browser</li>
           <li>My approval, then a merge queue that takes one change at a time</li>
+          <li>On my newer products, a scan for secrets and private data before every commit, and low-risk content changes merge on their own once checks pass</li>
         </ul></li>
-      <li class="stage"><span class="k">5 · Ship</span><b>Live, and the loop closes</b>
+      <li class="stage"><span class="k">5 · Ship</span><b>Deploy and watch</b>
         <ul>
-          <li>A broken deploy rolls itself back</li>
-          <li>The deploy closes the request and emails the people who asked or voted</li>
-          <li>Overnight: 3am data check, 4am error scan with a written analysis, 5am plan for the day built from new feedback</li>
+          <li>Every deploy is smoke-tested, and a broken one rolls itself back</li>
+          <li>Deploys wait out the 5am and 6pm report windows</li>
+          <li>People who asked for or voted on a feature get an email when its status changes</li>
+          <li>Overnight checks: 3am data reconcile, 4am system health, 4:30am error scan for failed AI calls and missed schedules</li>
         </ul></li>
-      <li class="stage next"><span class="k">Next</span><b>Being built</b>
+      <li class="stage"><span class="k">6 · Heal</span><b>Fix what it can</b>
         <ul>
-          <li>An error found overnight becomes a request, a plan and a tested change by morning</li>
-          <li>A coordinator agent that keeps the sessions moving and fixes small bugs on its own</li>
-          <li>Merge by replying to an email</li>
+          <li>Missing or stale data is refetched and repaired every night</li>
+          <li>Failed webhooks retry on a ladder, and anything still failing is kept for review</li>
+          <li>The 4am health email has a link that runs the known fixes in one click</li>
+          <li>A watchdog pages me if a check itself stops running</li>
+        </ul></li>
+      <li class="stage next"><span class="k">Next · being built now</span><b>Closing the loop without me</b>
+        <ul>
+          <li>A real problem found overnight goes to a fix agent, which opens a tested change by morning</li>
+          <li>Each change is verified after it ships, with an automatic revert if it fails</li>
+          <li>New tests must fail before the fix and pass after it</li>
+          <li>Rules for how far agents can go unattended, per product, from plan-only up to merging small fixes</li>
+          <li>Help articles that fail the build when the code changes and the help doesn't</li>
+          <li>The whole loop moved into devflow, the standalone tool I built from Titan's process, which already runs claims, scans and the merge queue on my other products</li>
         </ul></li>
     </ol>
     <p class="lede">Client work gets the same setup. Agents only write where that's been turned on, approvals depend on risk and role, spending is capped, and there's an off switch.</p>
