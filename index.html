@@ -4,21 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Konrad Kopczynski · Fractional head of AI operations</title>
-<meta name="description" content="I run AI operations for service businesses: the systems connected, the numbers right, and agents doing the follow-ups and checks, with a person approving every send. Built and ran Titan across 120+ home-services locations.">
+<meta name="description" content="I build AI that home services owners trust to run their day. I built and ran Titan across 120+ home services locations, and an AI operations agent works next to the GMs in my own company.">
 <meta property="og:title" content="Konrad Kopczynski · Fractional head of AI operations">
-<meta property="og:description" content="I run AI operations for service businesses: the systems connected, the numbers right, and agents doing the follow-ups and checks, with a person approving every send. Built and ran Titan across 120+ home-services locations.">
+<meta property="og:description" content="I build AI that home services owners trust to run their day. I built and ran Titan across 120+ home services locations, and an AI operations agent works next to the GMs in my own company.">
 <meta property="og:url" content="https://kopczynski.us/">
 <meta property="og:type" content="profile">
 <script>
 (function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
 </script>
-<meta property="og:image" content="https://kopczynski.us/og.png?v=2">
+<meta property="og:image" content="https://kopczynski.us/og.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Konrad Kopczynski, fractional head of AI operations: you can build a lot with AI now, I build the parts that have to keep working. 120+ locations Titan was built and run across, field labor 50% to 30% of revenue.">
+<meta property="og:image:alt" content="Konrad Kopczynski: I build AI that home services owners trust to run their day. 120+ locations Titan was built and run across, field labor 50% to 30% of revenue.">
 <meta property="og:site_name" content="Konrad Kopczynski">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://kopczynski.us/og.png?v=2">
+<meta name="twitter:image" content="https://kopczynski.us/og.png?v=3">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
@@ -185,9 +185,22 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 <style>
 header h1.headline{font-size:clamp(28px,5.2vw,42px); line-height:1.12}
 .cta{display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center}
+.flow{list-style:none; margin:4px 0; padding:0; display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; gap:10px 6px; align-items:stretch}
+.flow .st{background:var(--surface); border:1px solid var(--rule); border-radius:6px; padding:12px 12px 14px; display:grid; gap:3px; align-content:start}
+.flow .st.live{border-color:var(--accent); background:var(--accent-soft)}
+.flow .k{font-family:var(--mono); font-size:11.5px; color:var(--accent)}
+.flow b{font-size:14.5px; color:var(--ink); line-height:1.3}
+.flow .st span:last-child{font-size:13px; color:var(--muted); line-height:1.4}
+.flow .ar{display:grid; place-items:center; color:var(--accent); font-family:var(--mono); font-size:16px}
+.flow .dn{grid-column:7; justify-self:center}
+@media (max-width:640px){
+  .flow{grid-template-columns:1fr; gap:4px}
+  .flow .dn{grid-column:auto}
+  .flow .ar:not(.dn){transform:rotate(90deg)}
+}
 a.btn{display:inline-block; text-decoration:none; color:#fff}
 a.btn:hover{color:#fff}
-#offers,#own-company{scroll-margin-top:72px}
+#offers,#runs,#build{scroll-margin-top:72px}
 </style>
 </head>
 <body>
@@ -199,12 +212,12 @@ a.btn:hover{color:#fff}
 <div class="page">
   <header>
     <div class="role"><span>Fractional head of AI operations</span><span>Konrad Kopczynski · Kingston, NY</span></div>
-    <h1 class="headline">You can build a lot with AI now. I build the parts that have to keep working.</h1>
-    <p class="lede">Most owners I talk to have built something with AI by now: a dashboard, a scheduler, a few Claude or ChatGPT tools. Then every tool is one more thing to maintain, nobody is sure the numbers are right, and the owner is the only one who can fix it.</p>
-    <p class="lede">I take that on. I connect the systems you already run on, make sure the numbers mean what they say, and put AI agents to work on the follow-ups and checks that slip when everyone is busy. A person approves anything that goes out. I work with a few companies at a time.</p>
+    <h1 class="headline">I build AI that home services owners trust to run their day.</h1>
+    <p class="lede">Most owners I talk to have built a few AI tools by now. Each one is another thing to maintain, and usually the owner is the only one who knows how to fix it.</p>
+    <p class="lede">I connect the systems you already use so the numbers are right, then set up AI agents for the follow-ups that slip when the team is busy. A person approves anything that goes out, and I work with a few companies at a time.</p>
     <div class="cta">
       <a class="btn" data-book href="https://cal.com/kopczynski/30min?r=home">Book a 30-minute call</a>
-      <a href="#own-company">See what runs in my own company &darr;</a>
+      <a href="#runs">See what runs every day &darr;</a>
     </div>
   </header>
 
@@ -215,28 +228,44 @@ a.btn:hover{color:#fff}
     <div class="fig"><b>975</b><span>Changes shipped by one operator running AI agents</span></div>
   </div>
 
-  <section id="own-company">
-    <h2>What runs in my own company</h2>
-    <p class="lede">At my own two-location home-services company, an AI operations agent works alongside the GMs. It reads our field-service software, our phone and text lines, the shared inbox and the crew WhatsApp groups, and runs a set of checks:</p>
+  <section id="runs">
+    <h2>What runs every day</h2>
+    <p class="lede">I built Titan, an AI operating system for home services companies, and ran it across 120+ locations in two franchise systems. In my own two-location company, an AI operations agent now works next to the GMs on top of it, reading our field-service software, phone lines, shared inbox and crew WhatsApp groups. A day looks like this:</p>
     <ul class="fitlist">
-      <li><strong>Next-morning closeout.</strong> Were yesterday's jobs closed out and invoiced? It reads the job notes and messages first, so it only nudges when something is actually missing.</li>
-      <li><strong>Unpaid invoices.</strong> Follow-up texts go out, except to anyone with a complaint, a dispute, a cash payment or a recent text.</li>
-      <li><strong>GM follow-through.</strong> Before it flags a slow reply, it checks the field system to see whether the work already got done.</li>
-      <li><strong>Monday sweep.</strong> It confirms the week's appointments. One Monday it found 95 visits and sent 27 confirmations after a single approval.</li>
-      <li><strong>Weekly report review</strong>, and <strong>one-off watches</strong> for a specific event.</li>
+      <li><strong>3am, data check.</strong> Field-service data is reconciled overnight, so the morning numbers are right.</li>
+      <li><strong>5am, the numbers.</strong> Every manager and salesperson gets yesterday's results against target. Field labor went from 50% to 30% of revenue once managers saw dollars per van every morning.</li>
+      <li><strong>8:15, closeout.</strong> Were yesterday's jobs closed out and invoiced? The agent reads job notes and messages first, so it only nudges when something is actually missing.</li>
+      <li><strong>8:30, unpaid invoices.</strong> Follow-up texts go out, except to anyone with a complaint, a dispute, a cash payment or a recent text. Nearly 100% of invoices get collected, and about $20K of bad debt was recovered.</li>
+      <li><strong>9am and 4pm, GM follow-through.</strong> Before it flags a slow reply, the agent checks whether the work already got done.</li>
+      <li><strong>During the day, dispatch.</strong> The GM books new jobs next to existing work and pulls future jobs into slots that open up.</li>
+      <li><strong>6pm, what's left.</strong> Every visit from today that still needs invoicing or payment.</li>
+      <li><strong>Any time someone applies.</strong> They get a text within minutes, a short screening conversation and an interview booked with the GM as soon as possible. Cost per hire fell from about $1,000 to $100 to $150.</li>
+      <li><strong>Mondays, the week ahead.</strong> The weekly report, plus appointment confirmations. One Monday the agent found 95 visits and sent 27 confirmations after a single approval.</li>
     </ul>
-    <p class="lede">I approve every message before it's sent. It works the way the team already works: same software, same phone lines, same group chats. <a href="/proof/titan/#day">See a day of it in the case study</a>.</p>
+    <p class="lede">Messages to customers go out after a person approves them, on the same software, phone lines and group chats the team already uses. <a href="/proof/titan/#day">See a full day in the case study</a> or <a href="/proof/titan/#walkthrough">watch the 6-minute walkthrough</a>.</p>
   </section>
 
-  <section>
-    <h2>Titan</h2>
-    <p class="lede">Before this, I built Titan, an AI operating system for multi-location home-services businesses, and ran it across 120+ locations in two franchise systems. It handled reporting, quoting, invoicing, collections, recruiting and dispatch.</p>
-    <ul class="fitlist">
-      <li>Field labor fell from 50% to 30% of revenue.</li>
-      <li>Cost per hire fell from about $1,000 to $100 to $150, with an AI agent that screens applicants by text.</li>
-      <li>Nearly 100% of invoices collected, and about $20K of bad debt recovered.</li>
-    </ul>
-    <p class="lede"><a href="/proof/titan/#walkthrough">Watch the 6-minute walkthrough</a> or <a href="/proof/titan/">read the case study</a>.</p>
+  <section id="build">
+    <h2>How I build</h2>
+    <p class="lede">I built Titan by running AI coding agents in parallel, 80+ at a time, and shipped 975 changes, about the output of a seven-person engineering team. Every change goes through the same path:</p>
+    <ol class="flow" aria-label="How every change ships">
+      <li class="st"><span class="k">1</span><b>Written plan</b><span>I approve it before any code</span></li>
+      <li class="ar" aria-hidden="true">&rarr;</li>
+      <li class="st"><span class="k">2</span><b>Agents build</b><span>80+ in parallel, each in its own copy of the code</span></li>
+      <li class="ar" aria-hidden="true">&rarr;</li>
+      <li class="st"><span class="k">3</span><b>AI review</b><span>Four reviewers, one trained on my own past reviews</span></li>
+      <li class="ar" aria-hidden="true">&rarr;</li>
+      <li class="st"><span class="k">4</span><b>21 checks</b><span>Automated, on every change</span></li>
+      <li class="ar dn" aria-hidden="true">&darr;</li>
+      <li class="st"><span class="k">5</span><b>Own preview</b><span>A live copy, tested in a browser</span></li>
+      <li class="ar" aria-hidden="true">&rarr;</li>
+      <li class="st"><span class="k">6</span><b>My approval</b><span>I sign off on every change</span></li>
+      <li class="ar" aria-hidden="true">&rarr;</li>
+      <li class="st"><span class="k">7</span><b>Merge queue</b><span>One at a time, refuses anything failing</span></li>
+      <li class="ar" aria-hidden="true">&rarr;</li>
+      <li class="st live"><span class="k">8</span><b>Live</b><span>A broken deploy rolls itself back</span></li>
+    </ol>
+    <p class="lede">Client work gets the same setup. Agents only write where that's been turned on, approvals depend on risk and role, spending is capped, and there's an off switch.</p>
   </section>
 
   <section id="offers">
@@ -244,25 +273,19 @@ a.btn:hover{color:#fff}
     <div class="strengths">
       <div class="strength"><span class="n">1</span><div>
         <h3>Fractional head of AI operations, for businesses with several locations</h3>
-        <p>I find the one number that matters most across your locations, build the smallest system that moves it, and keep it running. It starts with a two-week paid audit, then about 4 days a month. <a href="/ai-ops/">How it works</a></p>
+        <p>We pick the one number that matters most across your locations, and I build what moves it and keep it running. It starts with a two-week paid audit, then about 4 days a month. <a href="/ai-ops/">How it works</a></p>
       </div></div>
       <div class="strength"><span class="n">2</span><div>
         <h3>A retainer to keep running what you've built</h3>
-        <p>For owners who have built their own AI tools. I review what you have and tell you what to keep, what to fix and what to switch off. Then I connect your systems (Jobber, QuickBooks, your phones) so the numbers mean what they say, and keep it all working as the tools and models change. You can text or email me any question and get an answer within 6 business hours.</p>
+        <p>I go through the AI tools you've built and tell you which ones are worth keeping. Then I connect them to Jobber, QuickBooks and your phones, and keep them working as the tools change.</p>
+        <p>Text or email me any question and you'll get an answer within 6 business hours.</p>
       </div></div>
       <div class="strength"><span class="n">3</span><div>
         <h3>An AI build sprint, for teams already building with AI</h3>
-        <p>An architecture and security review of what you're building and what it costs to run, then a build pipeline your team owns, with review, tests and a preview on every change. A 30-day sprint, then 1 to 2 days a week if it's useful.</p>
+        <p>I review the architecture, security and running costs of what you're building, then set up the build pipeline above on your code, owned by your team. It's a 30-day sprint, then 1 to 2 days a week if it's useful.</p>
       </div></div>
     </div>
-    <p class="lede">Every engagement starts the same way: a 30-minute call, then a short written note on what to build, what to buy and what your team can do themselves.</p>
-  </section>
-
-  <section>
-    <h2>How I build</h2>
-    <p class="lede"><strong>Building it is the easy part. Keeping it running is the work.</strong></p>
-    <p class="lede">I built Titan by running AI coding agents in parallel, 80+ at a time, and shipped 975 changes, about the output of a seven-person engineering team. Every change gets a written plan, AI review for safety, architecture and test coverage (plus a reviewer trained on my own review history), 21 automated checks and its own preview. A merge queue refuses anything failing, and a broken deploy rolls itself back.</p>
-    <p class="lede">The same discipline goes into anything I build for a client: approvals by risk and role, spend caps, an off switch, and write access only where it's turned on.</p>
+    <p class="lede">Every engagement starts with the 30-minute call below.</p>
   </section>
 
   <section>
@@ -304,12 +327,12 @@ a.btn:hover{color:#fff}
         </div>
       </div>
     </div>
-    <div class="next"><span class="tag">Early on AI</span><p>In January 2023 I wrote that AI would commoditize agency services, then led that shift at Croud.</p></div>
   </section>
 
   <section>
-    <h2>Start with one question</h2>
-    <p class="lede">Tell me the number you'd most like to trust, or the thing you built that you're tired of maintaining. In 30 minutes you'll get my honest view of whether it's worth taking on, and how I'd start.</p>
+    <h2>Bring me one problem</h2>
+    <p class="lede">I'm an open book. Bring one problem to a 30-minute call, like a report you don't trust or a tool you're tired of maintaining.</p>
+    <p class="lede">We'll work it out together on the call, and I'll show you how I'd build it. You can run with it yourself or have me build it.</p>
     <div class="cta">
       <a class="btn" data-book href="https://cal.com/kopczynski/30min?r=home">Book a 30-minute call</a>
       <span>or email <a href="mailto:konrad@kopczynski.us">konrad@kopczynski.us</a></span>
@@ -317,7 +340,7 @@ a.btn:hover{color:#fff}
   </section>
 
   <footer>
-    <span>BS Economics, The George Washington University, 2010 · NCAA Division I swimmer</span>
+    <span>Konrad Kopczynski · Kingston, NY</span>
     <a class="contact" href="mailto:konrad@kopczynski.us">konrad@kopczynski.us</a>
   </footer>
 </div>
