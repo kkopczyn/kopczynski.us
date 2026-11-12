@@ -1,0 +1,38 @@
+name: sitemap
+
+# On every push to main: rebuild sitemap.xml from all indexable pages,
+# commit it if it changed, and tell Bing (IndexNow) which URLs changed.
+on:
+  push:
+    branches: [main]
+    paths-ignore: [sitemap.xml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build sitemap
+        run: python3 scripts/build_sitemap.py > changed.txt && cat changed.txt
+      - name: Commit if changed
+        run: |
+          if git diff --quiet sitemap.xml; then echo "sitemap unchanged"; exit 0; fi
+          git config user.name "sitemap-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "chore: regenerate sitemap.xml"
+          git push
+      - name: Ping IndexNow
+        run: |
+          [ -s changed.txt ] || { echo "no changed URLs"; exit 0; }
+          KEY=$(cat scripts/indexnow-key.txt)
+          URLS=$(python3 -c "import json;print(json.dumps([l.strip() for l in open('changed.txt') if l.strip()]))")
+          curl -sS -o /dev/null -w "IndexNow HTTP %{http_code}\n" -X POST https://api.indexnow.org/indexnow \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"kopczynski.us\",\"key\":\"$KEY\",\"keyLocation\":\"https://kopczynski.us/$KEY.txt\",\"urlList\":$URLS}"

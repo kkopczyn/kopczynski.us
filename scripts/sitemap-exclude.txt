@@ -1,0 +1,3 @@
+# Paths kept out of sitemap.xml even though they have no noindex tag.
+# Pages with <meta name="robots" content="noindex"> are skipped automatically.
+/pico/
