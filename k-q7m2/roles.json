@@ -335,6 +335,20 @@
    "remote": false,
    "pay": "",
    "url": ""
+  },
+  {
+   "company": "Head",
+   "title": "Head of AI",
+   "remote": false,
+   "pay": "",
+   "url": ""
+  },
+  {
+   "company": "Clera",
+   "title": "Principal AI Architect",
+   "remote": false,
+   "pay": "",
+   "url": ""
   }
  ]
 }
