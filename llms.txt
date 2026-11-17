@@ -1,16 +1,38 @@
 # Konrad Kopczynski
 
-> Fractional head of AI operations for multi-location home services and service businesses, based in Kingston, NY. I pick the one number that matters most across your locations, build the AI system that moves it, run it for 90 days and leave it running.
+> I help home services owners (1 to 10 locations) get more of their leads, quotes and past customers booked. It starts with a free booking check. Then Bea follows up the people the team doesn't get to. The owner approves every message and pays a flat $25 only when one books, up to a cap they set ($1,000 by default). No monthly fee, no percentages. It starts as a two-week test. Based in Kingston, NY.
 
-I built Titan, an AI operating system for home services companies, and rolled it out to 120+ locations in two franchise systems. In our own locations it took field labor from 50% to 30% of revenue, cut cost per hire from about $1,000 to $100-150 with a text screener, and collected close to 100% of invoices. Before that I was VP Data & Intelligence at Croud, running a 43-person team and a $9M analytics P&L.
+## For home services owners
 
-Engagements start with a two-week fixed-price audit, then about 4 days a month at $10,000 a month, month to month after 90 days. At most four companies at a time.
+Start with a free booking check: send your website and I show you where leads and quotes are slipping without a follow-up.
 
-Contact: konrad@kopczynski.us · Book 30 minutes: https://cal.com/kopczynski/30min · LinkedIn: https://www.linkedin.com/in/kkopczyn
+Then Bea, the sales follow-up, works three lists:
+
+- New leads and quote-quitters, answered fast, day or night.
+- Quotes quiet 14+ days, and archived quotes the customer never declined.
+- Past customers who haven't rebooked.
+
+Messages go out from the owner's own system and phone line, only after the owner approves them. Bea works the leads, quotes and customers already in Jobber or another quote app.
+
+Price: a flat $25 only when a customer books. The owner sets a cap ($1,000 by default) and nothing past it is billed. No monthly fee, no percentages. It starts as a two-week test, and the bill is the list of bookings with the record each came from.
+
+## For PE home services platforms
+
+- A free outside check of a target or your brands in 48 hours, with nobody contacted. Works as diligence on an acquisition target.
+- Then a two-week full check, with permission, for $7,500, credited to whatever comes next.
+- Then per-result pricing by brand, or Konrad as fractional head of AI ops.
+
+## Background
+
+I built Titan, an operating system for home services companies, used across 120+ home services locations in two franchise systems. In our own locations field labor went from 50% to 30% of revenue, cost per hire dropped 85 to 90% (from about $1,000 to $100 to $150) with a text screener, and close to 100% of invoices were collected. Before that I was VP Data & Intelligence at Croud, running a 43-person team and a $9M analytics P&L.
+
+Contact: konrad@kopczynski.us · Book 15 minutes: https://cal.com/kopczynski/connect · LinkedIn: https://www.linkedin.com/in/kkopczyn
 
 ## Pages
 
-- [Home](https://kopczynski.us/): what I do, how I build, track record
-- [Fractional head of AI operations](https://kopczynski.us/ai-ops/): who it's for, how an engagement works, terms
+- [Home](https://kopczynski.us/): the free booking check and Bea's follow-up for home services owners
+- [For PE platforms](https://kopczynski.us/ai-ops/): the free outside check, the $7,500 two-week check, then per-result pricing or fractional
 - [Titan case study](https://kopczynski.us/proof/titan/): field labor 50% to 30% of revenue, and how it was built
-- [AI text screening case study](https://kopczynski.us/proof/screening/): hourly hiring, cost per hire from about $1,000 to $100-150
+- [AI text screening case study](https://kopczynski.us/proof/screening/): hourly hiring, cost per hire from about $1,000 to $100 to $150
+- [About](https://kopczynski.us/about/): career history and resume
+- [How I build](https://kopczynski.us/how-i-build/): how Titan was built with AI coding agents
