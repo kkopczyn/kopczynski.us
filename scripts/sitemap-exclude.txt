@@ -9,3 +9,7 @@
 /highland-clean/
 /phend-plumbing/
 /wire-guy/
+/columbia/
+/premium-service-brands/
+/cascade-services/
+/cleardefense/
