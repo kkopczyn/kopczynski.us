@@ -15,3 +15,7 @@
 /cleardefense/
 /bd-homes/
 /hv-route-book/
+/sparklean/
+/jk-clean/
+/command-pest/
+/team-first/
